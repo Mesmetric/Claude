@@ -1,12 +1,12 @@
 {
-  "version": 7,
-  "notes": "Script library, formatting tools, section timeline, pace coach",
+  "version": 8,
+  "notes": "Unlimited speed and size, reading zone styles, lock, timer, run summary",
   "minApp": 5,
   "apk": "https://github.com/Mesmetric/Claude/raw/main/teleprompter/Teleprompter.apk",
   "files": [
     {
       "path": "index.html",
-      "sha256": "57e36c28da1921d44dd790fbacf5784d4db78657677bf5c073985549a9174480"
+      "sha256": "ca35882cd5aaed7df5eecdffb31590a68e58c71c521d05a617b60a8896537492"
     },
     {
       "path": "fonts/atkinson-hyperlegible-latin-400-normal.woff2",

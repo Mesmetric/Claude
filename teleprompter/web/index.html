@@ -373,6 +373,67 @@ body.float #countdown span{font-size:22vmin}
 .dots3 i{width:8px;height:8px;border-radius:4px;background:var(--line);transition:width .25s,background-color .25s}
 .dots3 i.on{width:24px;background:var(--brand)}
 
+
+/* ================= update 8 ================= */
+.linkbtn{display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-size:13.5px;font-weight:500;padding:4px 0;min-height:32px}
+.linkbtn .ico{width:15px;height:15px}
+.menu{position:absolute;right:10px;top:calc(56px + var(--it));z-index:30;background:var(--sheet);border:1px solid var(--hair);border-radius:16px;padding:6px;min-width:200px;
+  box-shadow:0 8px 28px rgba(10,20,40,.18),0 2px 6px rgba(10,20,40,.08);transform-origin:top right;animation:menuIn .16s ease-out}
+@keyframes menuIn{from{opacity:0;transform:scale(.94)}}
+.menu button{display:flex;align-items:center;gap:12px;width:100%;height:48px;padding:0 14px;border-radius:10px;font-size:15.5px;font-weight:500;text-align:left}
+.menu button:active{background:var(--well)}
+.menu button .ico{width:20px;height:20px;color:var(--muted)}
+.menu .danger,.menu .danger .ico{color:var(--danger)}
+#numWrap{position:fixed;inset:0;background:rgba(10,14,22,.5);display:grid;place-items:center;z-index:96;padding:24px}
+#numBox{background:var(--sheet);color:var(--text);border-radius:var(--r-sheet);padding:24px 24px 16px;width:min(100%,340px);margin:0}
+#numBox h3{margin:0 0 16px;font-size:19px;font-weight:600}
+.numRow{display:flex;align-items:center;gap:10px;border:2px solid var(--brand);border-radius:var(--r-ctl);padding:0 14px;height:60px}
+.numRow input{flex:1;border:0;outline:none;background:transparent;font:700 28px Figtree,sans-serif;color:var(--text);min-width:0;font-variant-numeric:tabular-nums}
+.numRow span{color:var(--muted);font-weight:500}
+#numBox .actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+#numBox .btn{height:44px}
+button.val{padding:2px 0;border-radius:10px}
+button.val:active{background:#272a31}
+.dim{position:absolute;left:0;right:0;z-index:2;pointer-events:none;background:rgba(0,0,0,.66);transition:top .15s,height .15s}
+#dimTop{top:0}
+#band{transition:top .15s,height .15s}
+#guide .zh{position:absolute;top:-28px;width:44px;height:56px;pointer-events:auto;touch-action:none;cursor:ns-resize}
+#guide .zh.l{left:0}#guide .zh.r{right:0}
+#prompter.zbig #band{background:rgba(66,143,255,.13);border-top:1.5px solid rgba(66,143,255,.55);border-bottom:1.5px solid rgba(66,143,255,.35)}
+#prompter.navy{background:#0b1220}
+#prompter.paper{background:#f5f5f2}
+#prompter.paper #text .w.done{opacity:.4}
+#prompter.paper .cue{background:#e6e8f1;color:#414753}
+#prompter.paper .m{background:rgba(255,196,0,.35);color:inherit;box-shadow:none}
+#prompter.paper #text .b{text-decoration-color:rgba(0,0,0,.35)}
+body.voice #prompter.paper #text .w.done{color:#0058b2;opacity:1}
+#prompter.paper .dim{background:rgba(245,245,242,.72)}
+#prompter.paper #text .h{color:#0058b2;border-top-color:rgba(0,88,178,.25)}
+#prompter.locked #hud,#prompter.locked #topHud{display:none}
+#unlockPill{position:absolute;left:50%;bottom:calc(24px + var(--ib));transform:translateX(-50%);z-index:12;display:flex;align-items:center;gap:8px;background:#1c2027;color:#e0e2ec;
+  padding:0 18px;height:48px;border-radius:999px;font-weight:600;font-size:14.5px;overflow:hidden;touch-action:none}
+#unlockPill .ico{width:18px;height:18px}
+#unlockPill .ring2{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(66,143,255,.35)}
+#unlockPill.hold .ring2{width:100%;transition:width .7s linear}
+#lockBtn.on{background:#e0e2ec;color:#10131a}
+#summary{position:absolute;inset:0;z-index:15;background:rgba(0,0,0,.72);display:grid;place-items:center;padding:24px;animation:fadeIn .25s}
+@keyframes fadeIn{from{opacity:0}}
+.sumCard{background:#181c22;color:#e0e2ec;border-radius:28px;padding:28px 22px 20px;width:min(100%,380px);text-align:center;animation:viewIn .3s cubic-bezier(.2,.8,.2,1)}
+.sumCard>.ico{width:44px;height:44px;color:#5fd59a;margin:0 auto}
+.sumCard h2{margin:12px 0 20px;font-size:24px;font-weight:700;letter-spacing:-.4px}
+.sumGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+.sumGrid div{background:#1c2027;border-radius:16px;padding:14px 6px}
+.sumGrid b{display:block;font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.sumGrid span{font-size:12.5px;color:#8b919f}
+.sumAct{display:flex;gap:10px}.sumAct .btn{flex:1}
+.sumCard .tonal{background:#00458f;color:#d7e3ff}
+
+#topHud .t,.pill,.btn{white-space:nowrap}
+#topHud{gap:6px}
+#topHud .hb.ghost{width:44px;height:44px}
+body:not(.voice) #micPill{display:none}
+.pill{padding:0 10px}
+
 /* compact phones and landscape */
 @media (max-height:560px){
   .fab span{display:none} .fab{width:56px;padding:0}
@@ -403,7 +464,12 @@ body.float #countdown span{font-size:22vmin}
     <button class="iconbtn" id="backBtn" aria-label="Back to scripts"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 18-6-6 6-6"/></svg></button>
     <input id="titleIn" placeholder="Untitled script" maxlength="60" aria-label="Script title">
     <button class="iconbtn" id="previewBtn" aria-label="Preview" aria-pressed="false"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></button>
-    <button class="iconbtn" id="deleteBtn" aria-label="Delete script"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+    <button class="iconbtn" id="moreBtn" aria-label="More options" aria-haspopup="menu"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button>
+    <div id="menu" class="menu hidden" role="menu">
+      <button role="menuitem" data-m="dup"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="15" x2="15" y1="12" y2="18"/><line x1="12" x2="18" y1="15" y2="15"/><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Duplicate</button>
+      <button role="menuitem" data-m="copy"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Copy text</button>
+      <button role="menuitem" data-m="del" class="danger"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Delete</button>
+    </div>
   </div>
   <div class="paper">
     <textarea id="editor" aria-label="Script" placeholder="Type or paste your script.&#10;&#10;Select words and use the tools below to make them bold or highlighted, add a section heading, or drop in a pause or mood cue."></textarea>
@@ -419,7 +485,7 @@ body.float #countdown span{font-size:22vmin}
   </div>
   <div class="dock">
     <div class="dockrow">
-      <div class="meta"><b id="wordCount">0 words</b><span id="estTime">About 0:00 to read</span></div>
+      <div class="meta"><b id="wordCount">0 words</b><button id="fitBtn" class="linkbtn"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></svg><span id="estTime">About 0:00 to read</span></button></div>
       <div class="seg" id="modeSw" role="radiogroup" aria-label="Scrolling mode">
         <button data-v="auto" role="radio"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 17V3"/><path d="m6 11 6 6 6-6"/><path d="M19 21H5"/></svg>Auto</button>
         <button data-v="voice" role="radio"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg>Voice</button>
@@ -460,7 +526,10 @@ body.float #countdown span{font-size:22vmin}
 
   <div class="sec"><h3>Text</h3>
     <div class="row"><label>Font</label><div class="fonts" id="fontGrid"></div></div>
-    <div class="row"><label>Size <b id="fsV"></b></label><input type="range" id="fs" min="24" max="140" step="2" aria-label="Text size"></div>
+    <div class="row"><label>Size <b id="fsV"></b></label><input type="range" id="fs" min="12" max="200" step="2" aria-label="Text size">
+      <p class="hint">Go bigger than this in the prompter: pinch the text, hold the size buttons, or tap the size number to type any value.</p></div>
+    <div class="row"><label>Weight <b id="fwV"></b></label><input type="range" id="fw" min="300" max="900" step="100" aria-label="Font weight"></div>
+    <div class="row"><label>Letter spacing <b id="lsV"></b></label><input type="range" id="ls" min="-5" max="15" step="1" aria-label="Letter spacing"></div>
     <div class="row"><label>Line spacing <b id="lhV"></b></label><input type="range" id="lh" min="1" max="2.2" step="0.1" aria-label="Line spacing"></div>
     <div class="row"><label>Side margins <b id="mgV"></b></label><input type="range" id="mg" min="0" max="30" step="1" aria-label="Side margins"></div>
     <div class="row"><label>Alignment</label><div class="pills" id="alSeg"><button data-v="left">Left</button><button data-v="center">Centre</button></div></div>
@@ -469,11 +538,17 @@ body.float #countdown span{font-size:22vmin}
   </div>
 
   <div class="sec"><h3>Scrolling</h3>
-    <div class="row"><label>Auto-scroll speed <b id="spdV"></b></label><input type="range" id="spd" min="1" max="20" step="1" aria-label="Speed"></div>
-    <div class="row"><label>Reading line <b id="glV"></b></label><input type="range" id="gl" min="15" max="60" step="1" aria-label="Reading line position"></div>
+    <div class="row"><label>Auto-scroll speed <b id="spdV"></b></label><input type="range" id="spd" min="40" max="400" step="5" aria-label="Speed in words per minute">
+      <p class="hint">Most people speak at 130 to 160 words per minute. For any speed up to 1,000, hold the speed buttons or tap the number in the prompter.</p></div>
     <div class="row"><label>Countdown</label><div class="pills" id="cdSeg"><button data-v="0">Off</button><button data-v="3">3 s</button><button data-v="5">5 s</button><button data-v="10">10 s</button></div></div>
-    <div class="row tg" data-k="guide"><span>Reading guide</span><div class="sw"></div></div>
     <div class="row tg" data-k="moodFx"><span>Mood cues change pace<small>⏸️ pauses, 🐢 slows down, ⚡ speeds up</small></span><div class="sw"></div></div>
+  </div>
+
+  <div class="sec"><h3>Reading zone</h3>
+    <div class="row"><label>Style</label><div class="pills" id="zsSeg"><button data-v="band">Band</button><button data-v="spotlight">Spotlight</button><button data-v="arrows">Arrows</button><button data-v="off">Off</button></div></div>
+    <div class="row"><label>Lines covered <b id="zlV"></b></label><input type="range" id="zl" min="1" max="6" step="1" aria-label="Lines covered by the reading zone"></div>
+    <div class="row"><label>Position <b id="glV"></b></label><input type="range" id="gl" min="10" max="70" step="1" aria-label="Reading zone position">
+      <p class="hint">You can also drag the blue arrows up or down while prompting.</p></div>
   </div>
 
   <div class="sec"><h3>Voice</h3>
@@ -482,6 +557,7 @@ body.float #countdown span{font-size:22vmin}
   </div>
 
   <div class="sec"><h3>Display</h3>
+    <div class="row"><label>Background</label><div class="pills" id="bgSeg"><button data-v="black">Black</button><button data-v="navy">Navy</button><button data-v="paper">Paper</button></div></div>
     <div class="row tg" data-k="mirH"><span>Mirror text<small>For beam-splitter glass rigs</small></span><div class="sw"></div></div>
     <div class="row tg" data-k="mirV"><span>Flip upside down</span><div class="sw"></div></div>
     <div class="row"><label>Floating window background <b id="fopV"></b></label><input type="range" id="fop" min="0" max="100" step="5" aria-label="Floating window background"></div>
@@ -502,7 +578,15 @@ body.float #countdown span{font-size:22vmin}
     <div id="band"></div>
     <div id="scroller"><div id="text"></div></div>
     <div id="fadeTop"></div><div id="fadeBot"></div>
-    <div id="guide"></div>
+    <div id="dimTop" class="dim"></div><div id="dimBot" class="dim"></div>
+    <div id="guide"><span class="zh l" data-zh></span><span class="zh r" data-zh></span></div>
+  </div>
+  <div id="unlockPill" class="hidden"><span class="ring2"></span><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>Hold to unlock</span></div>
+  <div id="summary" class="hidden" role="dialog" aria-label="Session summary">
+    <div class="sumCard"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><h2>Run complete</h2>
+      <div class="sumGrid"><div><b id="sumTime">0:00</b><span>Time</span></div><div><b id="sumWords">0</b><span>Words</span></div><div><b id="sumWpm">0</b><span>Average wpm</span></div></div>
+      <div class="sumAct"><button class="btn tonal" id="sumAgain"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Restart</button><button class="btn filled" id="sumDone">Done</button></div>
+    </div>
   </div>
   <div id="progress"></div>
   <div id="nextMood" class="off"><i></i><div><small>Next</small><span></span></div></div>
@@ -514,13 +598,14 @@ body.float #countdown span{font-size:22vmin}
     <div class="t"><span id="timeInfo">0:00 / 0:00</span></div>
     <div class="pill" id="wpmPill" title="Words per minute"><span id="wpmTxt">—</span>&nbsp;wpm</div>
     <div class="pill" id="micPill"><span class="d"></span><span id="micTxt">Mic off</span></div>
+    <button class="hb ghost" id="lockBtn" aria-label="Lock touch"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></button>
     <button class="hb ghost" id="mirBtn" aria-label="Mirror text"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 12H8"/><path d="M16 12h-2"/><path d="M22 12h-2"/><path d="M4 12H2"/><path d="M7.298 20.288A1 1 0 008 22h8a1 1 0 00.703-1.712l-3.991-3.99a1 1 0 00-1.424-.001z"/><path d="M7.298 3.712A1 1 0 018 2h8a1 1 0 01.703 1.712l-3.991 3.99a1 1 0 01-1.424.001z"/></svg></button>
   </div>
   <div id="hud">
     <div id="timeline" aria-label="Script position"><div class="track"><div class="fill" id="tlFill"></div><div id="tlTicks"></div><div class="knob" id="tlKnob"></div></div><div class="tlLbl"><span id="tlSec"></span><span id="tlPct"></span></div></div>
     <div class="hudRow">
-      <div class="stepper"><button class="hb" data-act="fs-" aria-label="Smaller text"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m14 12 4 4 4-4"/><path d="M18 16V7"/><path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16"/><path d="M3.304 13h6.392"/></svg></button><div class="val"><b class="fsLbl">40</b>size</div><button class="hb" data-act="fs+" aria-label="Larger text"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m14 11 4-4 4 4"/><path d="M18 16V7"/><path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16"/><path d="M3.304 13h6.392"/></svg></button></div>
-      <div class="stepper"><button class="hb" data-act="sp-" aria-label="Slower"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/></svg></button><div class="val"><b class="spLbl">5</b>speed</div><button class="hb" data-act="sp+" aria-label="Faster"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></svg></button></div>
+      <div class="stepper"><button class="hb" data-act="fs-" aria-label="Smaller text"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m14 12 4 4 4-4"/><path d="M18 16V7"/><path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16"/><path d="M3.304 13h6.392"/></svg></button><button class="val" data-num="fs" aria-label="Type a text size"><b class="fsLbl">40</b>size</button><button class="hb" data-act="fs+" aria-label="Larger text"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m14 11 4-4 4 4"/><path d="M18 16V7"/><path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16"/><path d="M3.304 13h6.392"/></svg></button></div>
+      <div class="stepper"><button class="hb" data-act="sp-" aria-label="Slower"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/></svg></button><button class="val" data-num="wpm" aria-label="Type a speed"><b class="spLbl">140</b>wpm</button><button class="hb" data-act="sp+" aria-label="Faster"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></svg></button></div>
     </div>
     <div class="hudRow">
       <button class="hb" data-act="rw" aria-label="Jump back"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></button>
@@ -536,7 +621,7 @@ body.float #countdown span{font-size:22vmin}
     <button class="hb" data-act="rw" aria-label="Jump back"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></button>
     <span class="sp"></span>
     <button class="hb" data-act="sp-" aria-label="Slower"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/></svg></button>
-    <div class="val"><b class="spLbl">5</b>spd</div>
+    <button class="val" data-num="wpm" aria-label="Type a speed"><b class="spLbl">140</b>wpm</button>
     <button class="hb" data-act="sp+" aria-label="Faster"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
     <button class="hb" data-act="fs-" aria-label="Smaller text"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m14 12 4 4 4-4"/><path d="M18 16V7"/><path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16"/><path d="M3.304 13h6.392"/></svg></button>
     <button class="hb" data-act="fs+" aria-label="Larger text"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m14 11 4-4 4 4"/><path d="M18 16V7"/><path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16"/><path d="M3.304 13h6.392"/></svg></button>
@@ -547,6 +632,9 @@ body.float #countdown span{font-size:22vmin}
 
 <div id="confirmWrap" class="hidden"><div id="confirmBox" role="alertdialog" aria-modal="true"><p id="confirmMsg"></p>
   <div class="actions"><button class="btn" id="cNo">Cancel</button><button class="btn" id="cYes">Delete</button></div></div></div>
+<div id="numWrap" class="hidden"><form id="numBox" role="dialog" aria-modal="true"><h3 id="numTitle"></h3>
+  <div class="numRow"><input id="numIn" inputmode="decimal" autocomplete="off"><span id="numUnit"></span></div><p class="hint" id="numHint"></p>
+  <div class="actions"><button type="button" class="btn" id="numNo">Cancel</button><button type="submit" class="btn filled" id="numYes">Set</button></div></form></div>
 <div id="toast" role="status" aria-live="polite"></div>
 <div id="snack" role="status" aria-live="polite"><span id="snackTxt"></span><button id="snackBtn">Undo</button></div>
 
@@ -590,10 +678,11 @@ let scripts = store.get('tp_scripts', null);
 if(!Array.isArray(scripts) || !scripts.length) scripts = [{id:Date.now(), title:'Getting started', body:SAMPLE}];
 let cur = store.get('tp_cur', scripts[0].id);
 if(!scripts.find(s=>s.id===cur)) cur = scripts[0].id;
-const DEF = {speed:5, fs:0, ffs:0, lh:1.4, mg:6, gl:33, cd:3, align:'left', color:'#ffffff', hl:'#0070e0', font:'Inter',
+const DEF = {wpm:140, zl:2, zstyle:'band', bgc:'black', fw:700, ls:0, fs:0, ffs:0, lh:1.4, mg:6, gl:33, cd:3, align:'left', color:'#ffffff', hl:'#0070e0', font:'Inter',
   mirH:false, mirV:false, guide:true, moodFx:true, mode:'auto', lang:'', fop:78};
 let S = Object.assign({}, DEF, store.get('tp_settings', {}));
 if(!HLS.includes(S.hl)) S.hl='#0070e0';
+if(S.guide===false && !S.__zmig){ S.zstyle='off'; } S.__zmig=1; delete S.speed;
 const saveS = () => store.set('tp_settings', S);
 const saveScripts = () => { store.set('tp_scripts', scripts); store.set('tp_cur', cur); };
 const curScript = () => scripts.find(s=>s.id===cur);
@@ -715,14 +804,36 @@ function loadCur(){
 function updateMeta(){
   const st=stats(editor.value);
   $('wordCount').textContent = st.w+(st.w===1?' word':' words')+(st.cues?', '+st.cues+(st.cues>1?' cues':' cue'):'');
-  $('estTime').textContent = 'About '+fmt(st.sec)+' to read';
+  $('estTime').textContent = fmt(st.w/(S.wpm||140)*60)+' at '+S.wpm+' wpm';
 }
 let saveT;
 function touch(){ const s=curScript(); if(s) s.updated=Date.now(); clearTimeout(saveT); saveT=setTimeout(saveScripts,300); }
 editor.addEventListener('input',()=>{ curScript().body=editor.value; updateMeta(); touch(); });
 titleIn.addEventListener('input',()=>{ curScript().title=titleIn.value; touch(); });
 $('backBtn').onclick=()=>{ hap(); closeEditor(); };
-$('deleteBtn').onclick=()=>{ const id=cur; closeEditor(); setTimeout(()=>deleteScript(id),150); };
+$('moreBtn').onclick=e=>{ e.stopPropagation(); hap(); $('menu').classList.toggle('hidden'); };
+document.addEventListener('click',e=>{ if(!e.target.closest('#menu') && !e.target.closest('#moreBtn')) $('menu').classList.add('hidden'); });
+function copyText(t){
+  const done=()=>toast('Copied');
+  try{ if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(t).then(done,()=>fallback()); return; } }catch(e){}
+  fallback();
+  function fallback(){ const ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); done(); }catch(e){ toast('Could not copy'); } ta.remove(); }
+}
+$('menu').addEventListener('click',e=>{
+  const b=e.target.closest('[data-m]'); if(!b) return; hap(); $('menu').classList.add('hidden');
+  const sc=curScript(); const m=b.dataset.m;
+  if(m==='dup'){ const c={id:Date.now(), title:(sc.title||'Untitled script')+' copy', body:sc.body, updated:Date.now()}; scripts.push(c); cur=c.id; saveScripts(); loadCur(); toast('Duplicated'); }
+  else if(m==='copy'){ copyText(sc.body||''); }
+  else if(m==='del'){ const id=cur; closeEditor(); setTimeout(()=>deleteScript(id),150); }
+});
+$('fitBtn').onclick=()=>{
+  hap(); const st=stats(editor.value); if(!st.w){ toast('Write a script first'); return; }
+  askNumber('Fit to time', fmt(st.w/S.wpm*60), 'min:sec', v=>{
+    let sec; if(typeof v==='string'){ const [m,s2]=v.split(':'); sec=(parseInt(m)||0)*60+(parseFloat(s2)||0); } else sec=v*60>0 && v<20 ? v*60 : v;
+    if(!sec || sec<3){ toast('Enter a length like 1:30'); return; }
+    setWpm(st.w/(sec/60), true); updateMeta(); toast('Speed set to '+S.wpm+' wpm to finish in '+fmt(sec), 2600);
+  }, 'Type how long the read should take, like 1:30. The scroll speed adjusts to match.', true);
+};
 
 function insertAt(text){
   const v=editor.value, a=editor.selectionStart ?? v.length, z=editor.selectionEnd ?? v.length;
@@ -803,7 +914,7 @@ $('onbNext').onclick=()=>{ hap(); const i=onbIndex(); if(i>=2) onbClose(); else 
 $('onbSkip').onclick=()=>{ hap(); onbClose(); };
 
 /* ================= SETTINGS ================= */
-const SL=[['spd','speed',v=>v],['fs','fs',v=>v+'px'],['ffs','ffs',v=>v+'px'],['lh','lh',v=>(+v).toFixed(1)],['mg','mg',v=>v+'%'],['gl','gl',v=>v+'%'],['fop','fop',v=>v+'%']];
+const SL=[['spd','wpm',v=>v+' wpm'],['zl','zl',v=>v+(v>1?' lines':' line')],['fw','fw',v=>v],['ls','ls',v=>(v/100).toFixed(2)+' em'],['fs','fs',v=>v+' px'],['ffs','ffs',v=>v+' px'],['lh','lh',v=>(+v).toFixed(1)],['mg','mg',v=>v+'%'],['gl','gl',v=>v+'%'],['fop','fop',v=>v+'%']];
 const fg=$('fontGrid');
 FONTS.forEach(([fam,name,sub])=>{ const b=document.createElement('button'); b.dataset.v=fam; b.style.fontFamily='"'+fam+'"'; b.innerHTML=name+'<small>'+sub+'</small>'; fg.appendChild(b); });
 fg.onclick=e=>{ const b=e.target.closest('button'); if(!b) return; S.font=b.dataset.v; saveS(); syncSettings(); applyStyle(); };
@@ -816,7 +927,7 @@ function fillRanges(){ $$('input[type=range]').forEach(r=>r.style.setProperty('-
 document.addEventListener('input',e=>{ if(e.target.type==='range') fillRanges(); });
 function syncSettings(){
   SL.forEach(([id,k,f])=>{ const v = k==='fs' ? (S.fs||autoFs()) : k==='ffs' ? (S.ffs||autoFfs()) : S[k]; $(id).value=v; $(id+'V').textContent=f(v)+((k==='fs'&&!S.fs)||(k==='ffs'&&!S.ffs)?' (auto)':''); });
-  [['cdSeg','cd'],['alSeg','align']].forEach(([id,k])=>$$('#'+id+' button').forEach(b=>b.classList.toggle('on',String(S[k])===b.dataset.v)));
+  [['cdSeg','cd'],['alSeg','align'],['zsSeg','zstyle'],['bgSeg','bgc']].forEach(([id,k])=>$$('#'+id+' button').forEach(b=>b.classList.toggle('on',String(S[k])===b.dataset.v)));
   $$('#fontGrid button').forEach(b=>b.classList.toggle('on',b.dataset.v===S.font));
   $$('#colDots button').forEach(b=>b.classList.toggle('on',b.dataset.v===S.color));
   $$('#hlDots button').forEach(b=>b.classList.toggle('on',b.dataset.v===S.hl));
@@ -824,7 +935,7 @@ function syncSettings(){
   ls.value=S.lang; fillRanges();
 }
 SL.forEach(([id,k,f])=>$(id).addEventListener('input',e=>{ S[k]=+e.target.value; $(id+'V').textContent=f(S[k]); saveS(); applyStyle(); }));
-[['cdSeg','cd',Number],['alSeg','align',String]].forEach(([id,k,c])=>$(id).addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; S[k]=c(b.dataset.v); saveS(); syncSettings(); applyStyle(); }));
+[['cdSeg','cd',Number],['alSeg','align',String],['zsSeg','zstyle',String],['bgSeg','bgc',String]].forEach(([id,k,c])=>$(id).addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; S[k]=c(b.dataset.v); saveS(); syncSettings(); applyStyle(); }));
 $$('.tg').forEach(t=>t.addEventListener('click',()=>{ S[t.dataset.k]=!S[t.dataset.k]; saveS(); syncSettings(); applyStyle(); }));
 $('settingsBtn').onclick=()=>{ syncSettings(); $('sheetWrap').classList.remove('hidden'); };
 $('sheetDone').onclick=()=>$('sheetWrap').classList.add('hidden');
@@ -842,8 +953,11 @@ let speedFx=1, holdUntil=0, lastCueSeen=-1;
 const autoFs = () => Math.round(Math.max(30, Math.min(72, Math.min(innerWidth, innerHeight*0.8) * 0.105)));
 const autoFfs = () => Math.round(Math.max(18, Math.min(40, innerWidth * 0.072)));
 const fsz = () => IS_FLOAT ? (S.ffs || autoFfs()) : (S.fs || autoFs());
-const pxPerSec = () => S.speed * fsz() * 0.09 * speedFx;
-const gY = () => P.clientHeight * (IS_FLOAT ? Math.max(28, Math.min(S.gl,45)) : S.gl) / 100 + (IS_FLOAT ? 18 : 0);
+const pxPerWord = () => (W.length && maxY) ? maxY/W.length : fsz()*0.6;
+const pxPerSec = () => (S.wpm/60) * pxPerWord() * speedFx;
+const gY = () => P.clientHeight * (IS_FLOAT ? Math.max(24, Math.min(S.gl,60)) : S.gl) / 100 + (IS_FLOAT ? 18 : 0);
+const BGS={black:'#000000',navy:'#0b1220',paper:'#f5f5f2'};
+const isLight=c=>{ const n=parseInt(c.slice(1),16); return ((n>>16)*299+((n>>8)&255)*587+(n&255)*114)/1000 > 150; };
 const voiceMode = () => S.mode==='voice';
 
 const MARK_RE = /(\p{Extended_Pictographic}(?:️|‍\p{Extended_Pictographic}️?|\p{Emoji_Modifier})*)|(\*\*|==|\/\/)|(\s+)|([^\s\p{Extended_Pictographic}*=\/]+)|([*=\/])/gu;
@@ -887,19 +1001,27 @@ function build(body){
 function applyStyle(){
   const r=document.documentElement.style;
   r.setProperty('--hl',S.hl); r.setProperty('--fop',(S.fop/100).toFixed(2));
-  r.setProperty('--pbg', IS_FLOAT ? 'rgba(8,8,12,'+(S.fop/100).toFixed(2)+')' : '#000');
+  const paper=!IS_FLOAT && S.bgc==='paper';
+  r.setProperty('--pbg', IS_FLOAT ? 'rgba(9,12,18,'+(S.fop/100).toFixed(2)+')' : (BGS[S.bgc]||'#000'));
+  P.classList.toggle('paper', paper); P.classList.toggle('navy', !IS_FLOAT && S.bgc==='navy');
   document.body.classList.toggle('voice', voiceMode());
   textEl.style.fontFamily='"'+S.font+'",Inter,sans-serif';
-  textEl.style.fontSize=fsz()+'px'; textEl.style.lineHeight=S.lh; textEl.style.color=S.color; textEl.style.textAlign=S.align;
+  textEl.style.fontSize=fsz()+'px'; textEl.style.lineHeight=S.lh; textEl.style.color = paper && isLight(S.color) ? '#14161a' : (!paper || !isLight(S.color) ? S.color : S.color); textEl.style.textAlign=S.align;
   textEl.style.padding='0 '+(IS_FLOAT ? Math.min(S.mg,4) : S.mg)+'vw';
-  textEl.style.fontWeight = S.font==='Bebas' ? 400 : 700;
-  textEl.style.letterSpacing = S.font==='Bebas' ? '.02em' : '';
+  textEl.style.fontWeight = S.font==='Bebas' ? 400 : S.fw;
+  textEl.style.letterSpacing = ((S.font==='Bebas'?2:0)+S.ls)/100+'em';
   P.classList.toggle('flipH',S.mirH); P.classList.toggle('flipV',S.mirV);
   $('mirBtn').classList.toggle('on',S.mirH);
   const gy=gY(), lhpx=fsz()*S.lh;
-  $('guide').style.top=gy+'px'; $('guide').style.display=S.guide?'':'none';
-  const band=$('band'); band.style.display=S.guide?'':'none'; band.style.top=(gy-lhpx*.55)+'px'; band.style.height=(lhpx*1.1)+'px';
-  $$('.fsLbl').forEach(e=>e.textContent=fsz()); $$('.spLbl').forEach(e=>e.textContent=S.speed);
+  const zs=S.zstyle, zl=Math.max(1,S.zl|0);
+  const zTop=gy-lhpx*.55, zH=lhpx*(zl-1)+lhpx*1.1;
+  $('guide').style.top=gy+'px'; $('guide').style.display= zs==='off' ? 'none' : '';
+  const band=$('band'); band.style.display=(zs==='band'||zs==='spotlight')?'':'none'; band.style.top=zTop+'px'; band.style.height=zH+'px';
+  P.classList.toggle('zbig', zs==='band');
+  const spot = zs==='spotlight';
+  $('dimTop').style.display=spot?'':'none'; $('dimBot').style.display=spot?'':'none';
+  $('dimTop').style.height=Math.max(0,zTop)+'px'; $('dimBot').style.top=(zTop+zH)+'px'; $('dimBot').style.height=Math.max(0,P.clientHeight-zTop-zH)+'px';
+  $$('.fsLbl').forEach(e=>e.textContent=Math.round(fsz())); $$('.spLbl').forEach(e=>e.textContent=Math.round(S.wpm));
   if(prompting) measure();
 }
 function measure(){
@@ -959,8 +1081,8 @@ function render(){
   if(!voiceMode()) setDone(wordAtY(y+1));
   updateNextMood();
   if(!IS_FLOAT){
-    const base=S.speed*fsz()*0.09;
-    $('timeInfo').textContent= voiceMode() ? (cursor+' of '+W.length+' words') : (fmt(y/base)+' / '+fmt(maxY/base));
+    const pps=pxPerSec()||1;
+    $('timeInfo').textContent= voiceMode() ? (cursor+' of '+W.length+' words') : (fmt(y/pps)+' / '+fmt(maxY/pps));
     renderTimeline();
   }
 }
@@ -970,11 +1092,12 @@ function renderTimeline(){
   if(Math.abs(f-tlLast)<0.001) return; tlLast=f;
   $('tlFill').style.width=(f*100)+'%'; $('tlKnob').style.left=(f*100)+'%';
   const ci=curWordIndex(); let sec=''; for(const s of SECTIONS){ if(s.at<=ci) sec=s.title; else break; }
-  $('tlSec').textContent=sec; $('tlPct').textContent=Math.round(f*100)+'%';
+  $('tlSec').textContent=sec;
+  $('tlPct').textContent = voiceMode() ? Math.round(f*100)+'%' : fmt(Math.max(0,maxY-y)/(pxPerSec()||1))+' left';
   // pace coach
   let wpm=0;
   if(voiceMode()) wpm = (performance.now()-lastHeardT<2500 && lastAdvT) ? Math.round(wps*60) : 0;
-  else if(W.length && maxY) wpm = Math.round(pxPerSec()/(maxY/W.length)*60);
+  else wpm = Math.round(S.wpm*speedFx);
   const pill=$('wpmPill'); $('wpmTxt').textContent = wpm||'—';
   const v=voiceMode();
   pill.classList.toggle('good', v && wpm>=120 && wpm<=170); pill.classList.toggle('fast', v && wpm>170); pill.classList.toggle('slow', v && wpm>0 && wpm<110);
@@ -1023,16 +1146,16 @@ function tick(t){
   if(!playing){ raf=0; return; }
   moodEffects();
   if(t>=holdUntil) y+=pxPerSec()*dt;
-  if(y>=maxY){ y=maxY; render(); pause(); toast('End of script'); return; }
+  if(y>=maxY){ y=maxY; render(); pause(); if(!IS_FLOAT) showSummary(); else toast('End of script'); return; }
   render(); raf=requestAnimationFrame(tick);
 }
 const loop=()=>{ if(!raf){ last=performance.now(); raf=requestAnimationFrame(tick); } };
 const PLAY='<polygon points="7 4 20 12 7 20 7 4"/>', PAUSE='<rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/>';
 const setPlayIcon=on=>$$('.playIco').forEach(s=>{ const nv=on?PAUSE:PLAY; if(s.innerHTML===nv) return; const b=s.closest('.hb'); b&&b.classList.add('pop'); setTimeout(()=>{ s.innerHTML=nv; b&&b.classList.remove('pop'); },90); });
 
-function play(){ if(cdTimer) return; if(y>=maxY) { y=0; lastCueSeen=-1; } playing=true; setPlayIcon(true); loop(); hideHudSoon(); }
+function play(){ if(cdTimer) return; if(y>=maxY) { y=0; lastCueSeen=-1; sessReset(); } if(!sessStart) sessStart=performance.now(); sessTick(true); playing=true; setPlayIcon(true); loop(); hideHudSoon(); }
 function pause(){
-  playing=false; setPlayIcon(false); showHud(false);
+  sessTick(false); playing=false; setPlayIcon(false); showHud(false);
   if(cdTimer){ clearInterval(cdTimer); cdTimer=null; $('countdown').classList.add('hidden'); }
 }
 function toggle(){
@@ -1049,12 +1172,15 @@ function jumpBack(){
   if(voiceMode()){ const t=wordAtY(Math.max(0,yFor(cursor)-fsz()*S.lh*2.5)); cursor=committed=t; vpos=t; setDone(t); setNow(t-1); uttBase=t; return; }
   y=Math.max(0,y-fsz()*S.lh*3); lastCueSeen=-1; render();
 }
-function speed(d){ S.speed=Math.min(20,Math.max(1,S.speed+d)); saveS(); applyStyle(); if(!IS_FLOAT) toast('Speed '+S.speed, 700); }
-function fsize(d){
+const WPM_MIN=20, WPM_MAX=1000, FS_MIN=12, FS_MAX=400, FFS_MIN=10, FFS_MAX=200;
+function setWpm(v, quiet){ S.wpm=Math.round(Math.min(WPM_MAX,Math.max(WPM_MIN,v))); saveS(); $$('.spLbl').forEach(e=>e.textContent=S.wpm); tlLast=-1; render(); if(!quiet && !IS_FLOAT) toast(S.wpm+' wpm', 600); }
+function speed(d){ setWpm(S.wpm + d*5); }
+function setFs(v){
   const i=curWordIndex();
-  if(IS_FLOAT) S.ffs=Math.min(72,Math.max(16,fsz()+d/2)); else S.fs=Math.min(140,Math.max(24,fsz()+d));
+  if(IS_FLOAT) S.ffs=Math.round(Math.min(FFS_MAX,Math.max(FFS_MIN,v))); else S.fs=Math.round(Math.min(FS_MAX,Math.max(FS_MIN,v)));
   saveS(); applyStyle(); if(voiceMode()){ vpos=cursor; y=yAt(vpos); } else y=yFor(i); render();
 }
+function fsize(d){ setFs(fsz() + d/2); }
 function showHud(auto){ $('heard').classList.add('off'); $('hud').classList.remove('away'); $('topHud').classList.remove('away'); clearTimeout(hudTimer); if(auto) hideHudSoon(); }
 function hideHudSoon(){ clearTimeout(hudTimer); hudTimer=setTimeout(()=>{ if(playing||cdTimer||listening){ $('hud').classList.add('away'); $('topHud').classList.add('away'); } }, 2500); }
 
@@ -1064,7 +1190,7 @@ function openPrompter(){
   build(body);
   if(!IS_FLOAT){ $('library').classList.add('hidden'); $('editorView').classList.add('hidden'); }
   P.classList.remove('hidden');
-  prompting=true; y=0; vpos=0; playing=false; setPlayIcon(false);
+  prompting=true; y=0; vpos=0; playing=false; setPlayIcon(false); sessReset(); setLock(false); $('summary').classList.add('hidden');
   if(A && A.setPrompting) A.setPrompting(true);
   applyStyle(); measure(); showHud(false);
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>measure());
@@ -1087,33 +1213,117 @@ $('exitBtn').onclick=closePrompter;
 $('mirBtn').onclick=()=>{ S.mirH=!S.mirH; saveS(); applyStyle(); };
 
 P.addEventListener('click',e=>{
-  const b=e.target.closest('[data-act]'); if(!b) return; e.stopPropagation(); hap(b.dataset.act==='play'||b.dataset.act==='mic'?'confirm':'tick');
+  const nb=e.target.closest('[data-num]');
+  if(nb){ e.stopPropagation(); hap(); const k=nb.dataset.num;
+    if(k==='wpm') askNumber('Speed', S.wpm, 'wpm', v=>setWpm(v), 'Any speed from '+WPM_MIN+' to '+WPM_MAX+' words per minute.');
+    else askNumber('Text size', Math.round(fsz()), 'px', v=>setFs(v), 'Any size from '+(IS_FLOAT?FFS_MIN:FS_MIN)+' to '+(IS_FLOAT?FFS_MAX:FS_MAX)+'.');
+    return; }
+  const b=e.target.closest('[data-act]'); if(!b) return; e.stopPropagation();
   const a=b.dataset.act;
+  if(HOLD_ACTS.includes(a)) return;
+  hap(a==='play'||a==='mic'?'confirm':'tick');
   if(a==='play') toggle();
   else if(a==='mic'){
     if(voiceMode()){ micStop(); S.mode='auto'; saveS(); applyStyle(); setPlayIcon(false); toast('Auto scroll', 900); }
     else { pause(); S.mode='voice'; saveS(); const i=wordAtY(y+1); cursor=committed=uttBase=i; vpos=i; applyStyle(); setDone(i); setNow(i-1); loop(); micStart(); toast('Following your voice', 900); }
   }
-  else if(a==='sp+'){ if(voiceMode()&&!IS_FLOAT){ toast('Speed applies to auto scroll'); } speed(1); }
-  else if(a==='sp-'){ speed(-1); }
-  else if(a==='fs+') fsize(4); else if(a==='fs-') fsize(-4);
   else if(a==='rw') jumpBack();
   else if(a==='close') closePrompter();
   if(!IS_FLOAT) showHud(true);
 });
 
-/* -------- touch: tap = play/pause, drag = manual scroll -------- */
-let dragY=null, startY=0, moved=false, wasPlaying=false;
+/* -------- press and hold: steppers repeat and speed up -------- */
+const HOLD_ACTS=['sp+','sp-','fs+','fs-'];
+function stepAct(a, mult){
+  if(a==='sp+') setWpm(S.wpm+5*mult, true); else if(a==='sp-') setWpm(S.wpm-5*mult, true);
+  else if(a==='fs+') setFs(fsz()+2*mult); else if(a==='fs-') setFs(fsz()-2*mult);
+}
+P.addEventListener('pointerdown',e=>{
+  const b=e.target.closest('[data-act]'); if(!b || !HOLD_ACTS.includes(b.dataset.act)) return;
+  e.stopPropagation(); const a=b.dataset.act; const t0=performance.now(); let timer;
+  hap(); stepAct(a,1); if(!IS_FLOAT) showHud(true);
+  const rep=()=>{ const held=performance.now()-t0; const m= held>2400?8 : held>1400?4 : held>700?2 : 1; stepAct(a,m); hap(); timer=setTimeout(rep, 85); };
+  timer=setTimeout(rep, 380);
+  const stop=()=>{ clearTimeout(timer); window.removeEventListener('pointerup',stop); window.removeEventListener('pointercancel',stop); if(a[0]==='s' && !IS_FLOAT) toast(S.wpm+' wpm',600); };
+  window.addEventListener('pointerup',stop); window.addEventListener('pointercancel',stop);
+});
+
+/* -------- type an exact number -------- */
+let numCb=null;
+function askNumber(title, value, unit, cb, hint, text){
+  $('numTitle').textContent=title; $('numUnit').textContent=unit||''; $('numHint').textContent=hint||'';
+  const inp=$('numIn'); inp.value=value; inp.inputMode = text ? 'text' : 'decimal';
+  numCb=cb; $('numWrap').classList.remove('hidden'); setTimeout(()=>{ inp.focus(); inp.select(); },60);
+}
+function closeNum(){ $('numWrap').classList.add('hidden'); numCb=null; $('numIn').blur(); }
+$('numNo').onclick=closeNum;
+$('numWrap').addEventListener('click',e=>{ if(e.target.id==='numWrap') closeNum(); });
+$('numBox').addEventListener('submit',e=>{ e.preventDefault(); const raw=$('numIn').value.trim(); const cb=numCb; closeNum(); if(cb && raw) cb(raw.includes(':')?raw:parseFloat(raw.replace(',','.'))); });
+
+/* -------- reading zone: drag the arrows to move it -------- */
+$$('[data-zh]').forEach(h=>{
+  h.addEventListener('pointerdown',e=>{
+    e.stopPropagation(); h.setPointerCapture(e.pointerId); hap();
+    const move=ev=>{ const r=P.getBoundingClientRect(); let yy=ev.clientY-r.top; if(S.mirV) yy=r.height-yy;
+      S.gl=Math.round(Math.min(75,Math.max(8,(yy-(IS_FLOAT?18:0))/r.height*100))); applyStyle(); if(voiceMode()){ y=yAt(vpos); render(); } };
+    const up=()=>{ h.removeEventListener('pointermove',move); h.removeEventListener('pointerup',up); saveS(); };
+    h.addEventListener('pointermove',move); h.addEventListener('pointerup',up);
+  });
+});
+
+/* -------- touch lock -------- */
+let locked=false;
+function setLock(on){
+  locked=on; P.classList.toggle('locked',on); $('unlockPill').classList.toggle('hidden',!on); $('lockBtn').classList.toggle('on',on);
+  if(on){ toast('Screen locked. Hold the button at the bottom to unlock.',1800); } else { showHud(true); }
+}
+$('lockBtn').addEventListener('click',e=>{ e.stopPropagation(); hap('confirm'); setLock(true); });
+(function(){ const pill=$('unlockPill'); let t;
+  pill.addEventListener('pointerdown',e=>{ e.stopPropagation(); pill.classList.add('hold'); t=setTimeout(()=>{ pill.classList.remove('hold'); hap('confirm'); setLock(false); },720); });
+  const cancel=()=>{ clearTimeout(t); pill.classList.remove('hold'); };
+  pill.addEventListener('pointerup',cancel); pill.addEventListener('pointercancel',cancel); pill.addEventListener('pointerleave',cancel);
+})();
+
+/* -------- session timing + summary -------- */
+let sessStart=0, sessActive=0, sessLast=0;
+function sessTick(active){ const n=performance.now(); if(sessLast && sessActiveFlag) sessActive+=n-sessLast; sessLast=n; sessActiveFlag=active; }
+let sessActiveFlag=false;
+function sessReset(){ sessStart=0; sessActive=0; sessLast=0; sessActiveFlag=false; }
+function showSummary(){
+  sessTick(false);
+  const sec=Math.max(1,sessActive/1000);
+  $('sumTime').textContent=fmt(sec); $('sumWords').textContent=W.length; $('sumWpm').textContent=Math.round(W.length/(sec/60));
+  $('summary').classList.remove('hidden'); hap('confirm');
+}
+$('sumAgain').onclick=()=>{ $('summary').classList.add('hidden'); y=0; vpos=0; cursor=committed=uttBase=0; setDone(0); setNow(-1); lastCueSeen=-1; sessReset(); tlLast=-1; render(); if(voiceMode()) micStart(); else startCountdown(); };
+$('sumDone').onclick=()=>{ $('summary').classList.add('hidden'); closePrompter(); };
+
+/* -------- touch: tap = play/pause, drag = manual scroll, swipe sideways = speed, pinch = size -------- */
+let dragY=null, startY=0, startX=0, moved=false, wasPlaying=false, swipeX=null, swipeW=0;
+const pts=new Map(); let pinch=null;
 const stage=$('stage');
-stage.addEventListener('pointerdown',e=>{ dragY=e.clientY; startY=e.clientY; moved=false; wasPlaying=playing; });
+stage.addEventListener('pointerdown',e=>{
+  if(locked) return;
+  pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(pts.size===2){ const [a,b]=[...pts.values()]; pinch={d:Math.hypot(a.x-b.x,a.y-b.y), fs:fsz()}; dragY=null; moved=true; return; }
+  dragY=e.clientY; startY=e.clientY; startX=e.clientX; moved=false; wasPlaying=playing; swipeX=null;
+});
 stage.addEventListener('pointermove',e=>{
+  if(locked) return;
+  if(pts.has(e.pointerId)) pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(pinch && pts.size===2){ const [a,b]=[...pts.values()]; const d=Math.hypot(a.x-b.x,a.y-b.y); setFs(pinch.fs*d/pinch.d); return; }
   if(dragY==null) return;
-  if(Math.abs(e.clientY-startY)>8){ if(!moved && playing) playing=false; moved=true; }
+  const dx=e.clientX-startX, dy=e.clientY-startY;
+  if(swipeX==null && !moved && Math.abs(dx)>24 && Math.abs(dx)>Math.abs(dy)*1.6){ swipeX=e.clientX; swipeW=S.wpm; }
+  if(swipeX!=null){ const nv=swipeW+Math.round((e.clientX-swipeX)/4)*5*(S.mirH?-1:1); if(nv!==S.wpm){ setWpm(nv,true); hap(); toast(S.wpm+' wpm',500); } return; }
+  if(Math.abs(dy)>8){ if(!moved && playing) playing=false; moved=true; }
   if(moved){ const dir=S.mirV?-1:1; y=Math.min(maxY,Math.max(0,y-(e.clientY-dragY)*dir)); dragY=e.clientY; render();
     if(voiceMode()){ const i=wordAtY(y+1); cursor=committed=uttBase=i; vpos=i; setDone(i); setNow(i-1); } }
 });
-const endDrag=()=>{
+const endDrag=e=>{
+  pts.delete(e.pointerId); if(pinch){ if(pts.size<2){ pinch=null; dragY=null; } return; }
   if(dragY==null) return; dragY=null;
+  if(swipeX!=null){ swipeX=null; return; }
   if(!moved){ toggle(); }
   else { lastCueSeen=CUES.findIndex(c=>c.at>wordAtY(y+1))-1; if(lastCueSeen<-1) lastCueSeen=CUES.length-1;
     if(wasPlaying){ playing=true; loop(); } }
@@ -1126,7 +1336,7 @@ $('grip').addEventListener('pointerdown',e=>{ e.stopPropagation(); A && A.beginD
 $('fresize').addEventListener('pointerdown',e=>{ e.stopPropagation(); A && A.beginResize && A.beginResize(); });
 
 document.addEventListener('keydown',e=>{
-  if(!prompting) return; const k=e.key;
+  if(!prompting || !$('numWrap').classList.contains('hidden')) return; const k=e.key;
   if(k===' '||k==='Enter'||k==='MediaPlayPause'){ e.preventDefault(); toggle(); }
   else if(k==='ArrowDown'||k==='PageDown'){ e.preventDefault(); speed(1); }
   else if(k==='ArrowUp'||k==='PageUp'){ e.preventDefault(); speed(-1); }
@@ -1187,7 +1397,7 @@ function onSpeech(text, final){
   if(final){ committed=cursor; uttBase=cursor; }
   setDone(cursor); setNow(cursor-1);
   $('heard').firstChild.textContent='“'+text.slice(-60)+'”'; if($('hud').classList.contains('away')) $('heard').classList.remove('off');
-  if(cursor>=W.length){ toast('🎉 End of script'); micStop(); }
+  if(cursor>=W.length){ micStop(); if(!IS_FLOAT) setTimeout(showSummary,400); else toast('End of script'); }
 }
 function setMicUI(on, label){
   listening=on;
@@ -1203,6 +1413,7 @@ function ensureMicPermission(cb){
   permCb=cb||null; A.requestMic(); return false;
 }
 function micStart(){
+  if(!sessStart) sessStart=performance.now(); sessTick(true);
   wantListen=true; uttBase=cursor; vpos=Math.max(vpos,cursor); lastAdvT=0; setMicUI(false,'Starting…'); hideHudSoon();
   if(A && A.startListening){
     if(!A.hasMic()){ if(IS_FLOAT){ toast('Open the app once and allow the microphone',2600); wantListen=false; setMicUI(false); return; } ensureMicPermission(()=>micStart()); return; }
@@ -1218,7 +1429,7 @@ function micStart(){
   try{ webRec.start(); }catch(_){}
 }
 function micStop(){
-  wantListen=false;
+  sessTick(false); wantListen=false;
   if(A && A.stopListening) A.stopListening();
   if(webRec){ try{ webRec.stop(); }catch(_){} webRec=null; }
   setMicUI(false); showHud(false);
@@ -1238,6 +1449,10 @@ window.tpRemote=function(which){ if(!prompting) return; if(which==='pauseAll'){ 
 window.tpBack=function(){
   if(!$('confirmWrap').classList.contains('hidden')){ $('confirmWrap').classList.add('hidden'); return true; }
   if(!$('sheetWrap').classList.contains('hidden')){ $('sheetWrap').classList.add('hidden'); return true; }
+  if(!$('numWrap').classList.contains('hidden')){ closeNum(); return true; }
+  if(!$('menu').classList.contains('hidden')){ $('menu').classList.add('hidden'); return true; }
+  if(locked){ toast('Hold the button at the bottom to unlock'); return true; }
+  if(!$('summary').classList.contains('hidden')){ $('summary').classList.add('hidden'); closePrompter(); return true; }
   if(!$('onb').classList.contains('hidden')){ onbClose(); return true; }
   if(prompting && !IS_FLOAT){ closePrompter(); return true; }
   if(view==='editorView'){ if(previewOn){ setPreview(false); return true; } closeEditor(); return true; }
