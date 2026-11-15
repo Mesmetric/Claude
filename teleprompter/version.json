@@ -1,12 +1,96 @@
 {
-  "version": 6,
-  "notes": "New blue design, light and dark mode",
+  "version": 7,
+  "notes": "Script library, formatting tools, section timeline, pace coach",
   "minApp": 5,
   "apk": "https://github.com/Mesmetric/Claude/raw/main/teleprompter/Teleprompter.apk",
   "files": [
     {
       "path": "index.html",
-      "sha256": "9631376c7df4cc5f5b29f7e289d589b0df5325acd4b82d334aed6bf063c50cfc"
+      "sha256": "57e36c28da1921d44dd790fbacf5784d4db78657677bf5c073985549a9174480"
+    },
+    {
+      "path": "fonts/atkinson-hyperlegible-latin-400-normal.woff2",
+      "sha256": "d64ba838ef5472bba248620ec4fd8b5aa7cf0db2908e0bb230600caf279ba7bc"
+    },
+    {
+      "path": "fonts/atkinson-hyperlegible-latin-700-normal.woff2",
+      "sha256": "140e2bd25a7315c8a062508391426b0d8c3297400c947b8d847be28f73a199f0"
+    },
+    {
+      "path": "fonts/bebas-neue-latin-400-normal.woff2",
+      "sha256": "a7c90c89240c134f7fdd33d40c000ec90b79d675ea53e8cc5a6d423c073de412"
+    },
+    {
+      "path": "fonts/figtree-latin-400-normal.woff2",
+      "sha256": "8f98dd642986f1fa39c45b89665a57372897c235b36028e0e4a136e43dc5f8ab"
+    },
+    {
+      "path": "fonts/figtree-latin-500-normal.woff2",
+      "sha256": "953a6a4294b1205a1b4d4b9e5529478e8c9e1c5a67a9aa24a551414cd85b6f51"
+    },
+    {
+      "path": "fonts/figtree-latin-600-normal.woff2",
+      "sha256": "367d713287918784702563518f59239989da815c80d3c7337686b9816635a08b"
+    },
+    {
+      "path": "fonts/figtree-latin-700-normal.woff2",
+      "sha256": "7ec4f08d09f91d349917dd6592f6aaae66d8fe1bbd58fa24707961e79236616e"
+    },
+    {
+      "path": "fonts/inter-latin-400-normal.woff2",
+      "sha256": "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc"
+    },
+    {
+      "path": "fonts/inter-latin-700-normal.woff2",
+      "sha256": "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491"
+    },
+    {
+      "path": "fonts/lora-latin-400-normal.woff2",
+      "sha256": "ac079950fd9885261c0f73d9e87233f31b5427333ce0eb20e26c119458493c40"
+    },
+    {
+      "path": "fonts/lora-latin-700-normal.woff2",
+      "sha256": "c05fd5289492ed310ed882259b944ca5287e76e572a65d92d3941f9f44f0342a"
+    },
+    {
+      "path": "fonts/merriweather-latin-400-normal.woff2",
+      "sha256": "66f5bd22d738a801a9e58d71920559743b0baaced04be299e3c4feca3dce3556"
+    },
+    {
+      "path": "fonts/merriweather-latin-700-normal.woff2",
+      "sha256": "4e1ab49396c02be0d9a2a25eed7bc73781c047d85fcb5dfc2889873eaf992b09"
+    },
+    {
+      "path": "fonts/montserrat-latin-400-normal.woff2",
+      "sha256": "e66bcd2761ab6924b25ce70dafe10e57a39193c4fea1516730bd9cb5240af6c8"
+    },
+    {
+      "path": "fonts/montserrat-latin-700-normal.woff2",
+      "sha256": "f9d9e65b15372cebcafc3acd1e664a564c5c4b23278de4d5760de9a13c530371"
+    },
+    {
+      "path": "fonts/opendyslexic-latin-400-normal.woff2",
+      "sha256": "f007004af3cda5d8076e57c943f8cc8d00a0da25988b1ae1048683d60e7cac1a"
+    },
+    {
+      "path": "fonts/opendyslexic-latin-700-normal.woff2",
+      "sha256": "dd9fa9c7991113b0dddefe9506a30ad26b48e302b7a8fb91719a4726e8fde85b"
+    },
+    {
+      "path": "fonts/poppins-latin-400-normal.woff2",
+      "sha256": "7d93459d86585bfcdbb7e0376056226adb25821ee54b96236fe2123e9560929f"
+    },
+    {
+      "path": "fonts/poppins-latin-700-normal.woff2",
+      "sha256": "9338e65fc077355c7a87ae0d64cc101e23b9bf8ad78ae65f0f319c857311b526"
+    },
+    {
+      "path": "fonts/roboto-mono-latin-400-normal.woff2",
+      "sha256": "e03013e0baa5690a803c188da2214d920c3245b25ad78421ecc8ae86cd842ae9"
+    },
+    {
+      "path": "fonts/roboto-mono-latin-700-normal.woff2",
+      "sha256": "283fbef73f42c21722c5a3efc7a44b0c38aac1ada665602b2144c13ed58c0e99"
     }
   ]
 }

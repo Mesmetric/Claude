@@ -79,7 +79,12 @@ svg{display:block;flex:none}
 .iconbtn:active{background:var(--well)}
 
 /* ================= HOME ================= */
-#home{height:100%;display:flex;flex-direction:column;padding:var(--it) var(--ir) max(var(--ib),var(--ime)) var(--il)}
+html,body{overflow:hidden}
+.view{position:fixed;inset:0;display:flex;flex-direction:column;padding:var(--it) var(--ir) max(var(--ib),var(--ime)) var(--il);background:var(--bg)}
+.view.enter{animation:viewIn .32s cubic-bezier(.2,.8,.2,1)}
+.view.back{animation:viewBack .28s cubic-bezier(.2,.8,.2,1)}
+@keyframes viewIn{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes viewBack{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:none}}
 .appbar{display:flex;align-items:center;gap:4px;padding:10px 8px 6px 20px;flex:none}
 .appbar h1{margin:0;flex:1;font-size:24px;line-height:32px;font-weight:700;letter-spacing:-.4px}
 
@@ -263,46 +268,191 @@ body.float #countdown span{font-size:22vmin}
 #cYes{background:var(--danger);color:#fff}
 @media (prefers-color-scheme:dark){ #cYes{color:#690005} }
 
+/* ================= LIBRARY ================= */
+.appbar h1{font-size:28px;line-height:36px;letter-spacing:-.6px}
+.search{display:flex;align-items:center;gap:10px;margin:6px 16px 10px;height:48px;padding:0 16px;border-radius:var(--r-full);background:var(--well);color:var(--muted);flex:none}
+.search .ico{width:20px;height:20px}
+.search input{flex:1;border:0;background:transparent;outline:none;font-size:16px;color:var(--text);min-width:0}
+.search input::placeholder{color:var(--faint)}
+.search input::-webkit-search-cancel-button{-webkit-appearance:none}
+.list{flex:1;overflow-y:auto;padding:4px 16px 104px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.cardWrap{position:relative;margin-bottom:10px;border-radius:var(--r-card);background:var(--danger-bg);overflow:hidden}
+.cardWrap .del{position:absolute;right:22px;top:50%;transform:translateY(-50%);color:var(--danger);display:flex;align-items:center;gap:6px;font-weight:600;font-size:14px}
+.card{position:relative;display:flex;gap:14px;align-items:flex-start;padding:16px 12px 16px 18px;background:var(--sheet);border:1px solid var(--hair);border-radius:var(--r-card);
+  box-shadow:var(--shadow);touch-action:pan-y;transition:transform .25s cubic-bezier(.2,.8,.2,1),opacity .25s;text-align:left;width:100%}
+.card.drag{transition:none}
+.card .body{flex:1;min-width:0}
+.card h4{margin:0 0 4px;font-size:17px;font-weight:600;letter-spacing:-.15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card p{margin:0 0 10px;font-size:14.5px;line-height:1.45;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .facts{display:flex;gap:14px;font-size:13px;color:var(--faint);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+.card .facts span{display:inline-flex;align-items:center;gap:5px}
+.card .facts .ico{width:14px;height:14px}
+.card .go{width:48px;height:48px;border-radius:50%;background:var(--tonal);color:var(--on-tonal);display:grid;place-items:center;flex:none;align-self:center}
+.card .go .ico{width:20px;height:20px}
+.empty{text-align:center;color:var(--muted);padding:56px 24px;font-size:15px;line-height:1.5}
+.empty b{display:block;color:var(--text);font-size:18px;margin-bottom:6px}
+.fab{position:absolute;right:calc(16px + var(--ir));bottom:calc(20px + max(var(--ib),var(--ime)));height:56px;padding:0 20px 0 16px;border-radius:18px;background:var(--brand);color:#fff;
+  display:flex;align-items:center;gap:10px;font-weight:600;font-size:15.5px;box-shadow:0 6px 16px rgba(0,80,180,.28),0 2px 4px rgba(0,0,0,.12);transition:transform .12s}
+.fab:active{transform:scale(.96)}
+.fab .ico{width:22px;height:22px}
+
+/* ================= EDITOR ================= */
+.appbar.ed{padding:6px 4px 6px 4px;gap:0}
+.appbar.ed #titleIn{flex:1;min-width:0;padding:8px 6px;font-size:19px}
+.paper{margin-top:4px}
+#editor{padding-top:16px}
+#preview{flex:1;overflow-y:auto;background:#000;color:#fff;padding:20px 22px 40px;font:700 24px/1.45 Figtree,sans-serif}
+#preview p{margin:0 0 .8em}
+#preview .h,#text .h{font-size:.6em;color:#7cabff;font-weight:700;letter-spacing:.2px;margin:1.4em 0 .5em;padding-top:.6em;border-top:1px solid rgba(124,171,255,.3)}
+#preview .h:first-child,#text .h:first-child{margin-top:0;border-top:0;padding-top:0}
+.b{font-weight:800}
+#text .b{font-weight:800;text-decoration:underline;text-decoration-thickness:.07em;text-underline-offset:.14em;text-decoration-color:rgba(255,255,255,.45)}
+.m{background:rgba(255,206,64,.26);color:#ffe9a8;border-radius:.12em;box-shadow:0 0 0 .06em rgba(255,206,64,.26)}
+.tools{display:flex;align-items:center;gap:2px;border-top:1px solid var(--hair);background:var(--raised);padding:6px 6px;flex:none;overflow-x:auto;scrollbar-width:none}
+.tools::-webkit-scrollbar{display:none}
+.tool{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:var(--muted);flex:none}
+.tool:active{background:var(--well)}
+.tool .ico{width:20px;height:20px}
+.tsep{width:1px;height:28px;background:var(--line);margin:0 6px;flex:none}
+.tools .moods{padding:0;overflow:visible;gap:0}
+.tools .mood{min-width:52px;min-height:44px;padding:4px 2px}
+.tools .mood i{font-size:22px}
+.tools .mood span{font-size:10.5px}
+#previewBtn[aria-pressed=true]{background:var(--tonal);color:var(--on-tonal)}
+.dock .actions .tonal{flex:0 0 auto;padding:0 22px}
+
+/* ================= SNACKBAR ================= */
+#snack{position:fixed;left:16px;right:16px;bottom:calc(92px + var(--ib));z-index:95;display:flex;align-items:center;gap:12px;background:var(--text);color:var(--bg);
+  padding:6px 8px 6px 18px;border-radius:14px;min-height:52px;font-size:15px;transform:translateY(16px);opacity:0;pointer-events:none;transition:all .22s cubic-bezier(.2,.8,.2,1)}
+#snack.show{transform:none;opacity:1;pointer-events:auto}
+#snack span{flex:1}
+#snackBtn{height:40px;padding:0 14px;border-radius:10px;font-weight:700;color:#7cabff}
+@media (prefers-color-scheme:light){ #snackBtn{color:#abc7ff} }
+
+/* ================= PROMPTER extras ================= */
+#timeline{max-width:520px;margin:0 auto 16px;padding:8px 4px 0;touch-action:none;cursor:pointer}
+#timeline .track{position:relative;height:6px;border-radius:6px;background:#272a31}
+#timeline .fill{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:var(--accent);width:0}
+#timeline .knob{position:absolute;top:50%;width:16px;height:16px;border-radius:50%;background:#fff;transform:translate(-50%,-50%);left:0;box-shadow:0 1px 4px rgba(0,0,0,.5)}
+#tlTicks i{position:absolute;top:-4px;width:2px;height:14px;border-radius:2px;background:#8b919f;transform:translateX(-1px)}
+.tlLbl{display:flex;justify-content:space-between;font-size:12.5px;color:#8b919f;margin-top:8px;font-weight:500;font-variant-numeric:tabular-nums}
+.tlLbl span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70%}
+#wpmPill{font-variant-numeric:tabular-nums}
+#wpmPill.good{color:#7ee2a8} #wpmPill.fast{color:#ffb86b} #wpmPill.slow{color:#ffb86b}
+.hb.big .playIco{transition:transform .18s cubic-bezier(.2,.8,.2,1)}
+.hb.big.pop .playIco{transform:scale(.7)}
+
+/* ================= ONBOARDING ================= */
+#onb{position:fixed;inset:0;z-index:80;background:var(--bg);display:flex;flex-direction:column;padding:calc(24px + var(--it)) 0 calc(16px + var(--ib))}
+.onbTrack{flex:1;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.onbTrack::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:center;display:flex;flex-direction:column;justify-content:center;padding:0 32px}
+.slide h2{margin:36px 0 12px;font-size:28px;line-height:1.2;letter-spacing:-.6px;font-weight:700;max-width:16ch}
+.slide p{margin:0;font-size:17px;line-height:1.55;color:var(--muted);max-width:34ch}
+.art{height:240px;border-radius:28px;background:#000;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:0 44px}
+.art .line{height:16px;border-radius:8px;background:#32353c;width:78%}
+.art .line.s{width:56%}
+.art .line.hl{background:#fff;width:88%}
+.art1 .mk{position:absolute;top:50%;border:12px solid transparent;margin-top:9px}
+.art1 .mk.l{left:0;border-left:15px solid #428fff}.art1 .mk.r{right:0;border-right:15px solid #428fff}
+.art2{align-items:center;flex-direction:row;justify-content:center;gap:22px;color:#fff;background:var(--brand)}
+.art2 .ico{width:56px;height:56px}
+.art2 .wave{display:flex;gap:7px;align-items:center;height:80px}
+.art2 .wave i{width:8px;border-radius:4px;background:#fff;animation:wv 1.1s ease-in-out infinite}
+.art2 .wave i:nth-child(1){height:30%;animation-delay:-.4s}.art2 .wave i:nth-child(2){height:70%;animation-delay:-.2s}.art2 .wave i:nth-child(3){height:100%}.art2 .wave i:nth-child(4){height:60%;animation-delay:-.3s}.art2 .wave i:nth-child(5){height:35%;animation-delay:-.1s}
+@keyframes wv{50%{transform:scaleY(.45)}}
+.art3{background:var(--tonal);align-items:center}
+.art3 .phone{width:140px;height:220px;margin-top:60px;border-radius:24px;background:#1c2027;position:relative;border:6px solid #10131a}
+.art3 .cam{position:absolute;inset:0;border-radius:18px;background:radial-gradient(circle at 50% 70%,#3a4d6b,#1c2027 70%)}
+.art3 .win{position:absolute;left:8px;right:8px;top:14px;border-radius:12px;background:rgba(0,0,0,.85);padding:12px;display:flex;flex-direction:column;gap:8px;border:1px solid rgba(255,255,255,.15)}
+.art3 .win .line{height:8px;width:90%;background:#fff}.art3 .win .line.s{width:60%;background:#5c6270}
+.onbFoot{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 0}
+.onbFoot .btn{min-width:96px}
+#onbSkip{color:var(--muted)}
+.dots3{display:flex;gap:8px}
+.dots3 i{width:8px;height:8px;border-radius:4px;background:var(--line);transition:width .25s,background-color .25s}
+.dots3 i.on{width:24px;background:var(--brand)}
+
 /* compact phones and landscape */
 @media (max-height:560px){
+  .fab span{display:none} .fab{width:56px;padding:0}
   .appbar{padding-top:4px;padding-bottom:2px} .appbar h1{font-size:20px}
   #scriptBar{padding-bottom:6px} .moodbar h3{display:none} .mood span{display:none} .mood{min-height:44px}
   .dock{padding:8px 16px} .dock .actions .btn{height:44px}
 }
-@media (min-width:700px){ #home{max-width:760px;margin:0 auto} }
+@media (min-width:700px){ .view{max-width:760px;margin:0 auto;left:50%;transform:translateX(-50%)} }
 </style>
 </head>
 <body>
 
-<section id="home">
+<section id="library" class="view">
   <div class="appbar">
-    <h1>Teleprompter</h1>
+    <h1>Scripts</h1>
     <button class="iconbtn" id="importBtn" aria-label="Import a text file"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M12 12v6"/><path d="m15 15-3-3-3 3"/></svg></button>
     <button class="iconbtn" id="settingsBtn" aria-label="Settings"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 17H5"/><path d="M19 7h-9"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg></button>
     <input type="file" id="fileIn" accept=".txt,text/plain" class="hidden">
   </div>
   <button id="updBanner" class="hidden"><span class="t"><b>Update available</b><em id="updBannerTxt"></em></span><i>Install</i></button>
-  <div id="scriptBar" role="tablist" aria-label="Scripts"></div>
-  <div class="paper">
+  <label class="search"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg><input id="searchIn" type="search" placeholder="Search scripts" aria-label="Search scripts" autocomplete="off"></label>
+  <div id="list" class="list" role="list"></div>
+  <button class="fab" id="newBtn"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg><span>New script</span></button>
+</section>
+
+<section id="editorView" class="view hidden">
+  <div class="appbar ed">
+    <button class="iconbtn" id="backBtn" aria-label="Back to scripts"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 18-6-6 6-6"/></svg></button>
     <input id="titleIn" placeholder="Untitled script" maxlength="60" aria-label="Script title">
-    <textarea id="editor" aria-label="Script" placeholder="Type or paste your script.&#10;&#10;Add a mood cue below to remind yourself how to deliver a line."></textarea>
-    <div class="moodbar"><h3>Mood cues</h3><div class="moods" id="moods"></div></div>
+    <button class="iconbtn" id="previewBtn" aria-label="Preview" aria-pressed="false"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></button>
+    <button class="iconbtn" id="deleteBtn" aria-label="Delete script"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+  </div>
+  <div class="paper">
+    <textarea id="editor" aria-label="Script" placeholder="Type or paste your script.&#10;&#10;Select words and use the tools below to make them bold or highlighted, add a section heading, or drop in a pause or mood cue."></textarea>
+    <div id="preview" class="hidden" aria-live="polite"></div>
+    <div class="tools" role="toolbar" aria-label="Formatting">
+      <button class="tool" data-fmt="bold" aria-label="Bold"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 12h9a4 4 0 010 8H7a1 1 0 01-1-1V5a1 1 0 011-1h7a4 4 0 010 8"/></svg></button>
+      <button class="tool" data-fmt="mark" aria-label="Highlight"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg></button>
+      <button class="tool" data-fmt="head" aria-label="Section heading"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 12h8"/><path d="M4 18V6"/><path d="M12 18V6"/><path d="m17 12 3-2v8"/></svg></button>
+      <button class="tool" data-fmt="pause" aria-label="Insert pause"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><line x1="10" x2="10" y1="15" y2="9"/><line x1="14" x2="14" y1="15" y2="9"/></svg></button>
+      <span class="tsep"></span>
+      <div class="moods" id="moods"></div>
+    </div>
   </div>
   <div class="dock">
     <div class="dockrow">
-      <div class="meta"><b id="wordCount">0 words</b><span id="estTime">about 0:00</span></div>
+      <div class="meta"><b id="wordCount">0 words</b><span id="estTime">About 0:00 to read</span></div>
       <div class="seg" id="modeSw" role="radiogroup" aria-label="Scrolling mode">
         <button data-v="auto" role="radio"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 17V3"/><path d="m6 11 6 6 6-6"/><path d="M19 21H5"/></svg>Auto</button>
         <button data-v="voice" role="radio"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg>Voice</button>
       </div>
     </div>
     <div class="actions">
-      <button class="btn outlined icon" id="deleteBtn" aria-label="Delete script"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
       <button class="btn tonal" id="floatBtn"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 9V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10c0 1.1.9 2 2 2h4"/><rect width="10" height="7" x="12" y="13" rx="2"/></svg>Float</button>
       <button class="btn filled" id="startBtn"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>Start</button>
     </div>
   </div>
 </section>
+
+<div id="onb" class="hidden" role="dialog" aria-modal="true" aria-label="Welcome">
+  <div class="onbTrack" id="onbTrack">
+    <div class="slide">
+      <div class="art art1"><div class="line s"></div><div class="line"></div><div class="line hl"></div><div class="line s"></div><span class="mk l"></span><span class="mk r"></span></div>
+      <h2>Your words, front and centre</h2><p>Write or paste a script, then read it at a steady pace with the reading line keeping your place.</p>
+    </div>
+    <div class="slide">
+      <div class="art art2"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></svg><div class="wave"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <h2>It listens and keeps up</h2><p>Switch to Voice and the script moves as you speak, lighting up each word you say. Pause, ad-lib or skip ahead and it finds you again.</p>
+    </div>
+    <div class="slide">
+      <div class="art art3"><div class="phone"><div class="cam"></div><div class="win"><div class="line s"></div><div class="line"></div></div></div></div>
+      <h2>Float it over your camera</h2><p>Tap Float to keep the prompter on top of any app, so you can read while you record.</p>
+    </div>
+  </div>
+  <div class="onbFoot">
+    <button class="btn" id="onbSkip">Skip</button>
+    <div class="dots3" id="onbDots"><i class="on"></i><i></i><i></i></div>
+    <button class="btn filled" id="onbNext">Next</button>
+  </div>
+</div>
 
 <div id="sheetWrap" class="hidden"><div id="sheet" role="dialog" aria-modal="true" aria-label="Settings">
   <div class="grab"></div>
@@ -362,10 +512,12 @@ body.float #countdown span{font-size:22vmin}
   <div id="topHud">
     <button class="hb ghost" id="exitBtn" aria-label="Back to script"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 18-6-6 6-6"/></svg></button>
     <div class="t"><span id="timeInfo">0:00 / 0:00</span></div>
+    <div class="pill" id="wpmPill" title="Words per minute"><span id="wpmTxt">—</span>&nbsp;wpm</div>
     <div class="pill" id="micPill"><span class="d"></span><span id="micTxt">Mic off</span></div>
     <button class="hb ghost" id="mirBtn" aria-label="Mirror text"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 12H8"/><path d="M16 12h-2"/><path d="M22 12h-2"/><path d="M4 12H2"/><path d="M7.298 20.288A1 1 0 008 22h8a1 1 0 00.703-1.712l-3.991-3.99a1 1 0 00-1.424-.001z"/><path d="M7.298 3.712A1 1 0 018 2h8a1 1 0 01.703 1.712l-3.991 3.99a1 1 0 01-1.424.001z"/></svg></button>
   </div>
   <div id="hud">
+    <div id="timeline" aria-label="Script position"><div class="track"><div class="fill" id="tlFill"></div><div id="tlTicks"></div><div class="knob" id="tlKnob"></div></div><div class="tlLbl"><span id="tlSec"></span><span id="tlPct"></span></div></div>
     <div class="hudRow">
       <div class="stepper"><button class="hb" data-act="fs-" aria-label="Smaller text"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m14 12 4 4 4-4"/><path d="M18 16V7"/><path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16"/><path d="M3.304 13h6.392"/></svg></button><div class="val"><b class="fsLbl">40</b>size</div><button class="hb" data-act="fs+" aria-label="Larger text"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m14 11 4-4 4 4"/><path d="M18 16V7"/><path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16"/><path d="M3.304 13h6.392"/></svg></button></div>
       <div class="stepper"><button class="hb" data-act="sp-" aria-label="Slower"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/></svg></button><div class="val"><b class="spLbl">5</b>speed</div><button class="hb" data-act="sp+" aria-label="Faster"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></svg></button></div>
@@ -396,6 +548,7 @@ body.float #countdown span{font-size:22vmin}
 <div id="confirmWrap" class="hidden"><div id="confirmBox" role="alertdialog" aria-modal="true"><p id="confirmMsg"></p>
   <div class="actions"><button class="btn" id="cNo">Cancel</button><button class="btn" id="cYes">Delete</button></div></div></div>
 <div id="toast" role="status" aria-live="polite"></div>
+<div id="snack" role="status" aria-live="polite"><span id="snackTxt"></span><button id="snackBtn">Undo</button></div>
 
 <script>
 (function(){
@@ -431,7 +584,8 @@ const store = {
   get(k,d){ try{ const v = localStorage.getItem(k); return v==null ? d : JSON.parse(v); }catch(e){ return d; } },
   set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
 };
-const SAMPLE = "😊 Hi, and welcome to your new teleprompter.\n\nType or paste your script on the home screen, then tap Start. 👉 Tap anywhere to pause, and drag to scroll by hand.\n\n🤔 Want it to follow you instead? Switch on Follow my voice. ⏸️ The words light up as you say them, and the script moves at your pace.\n\n🔥 Use mood cues like these to remind yourself how to deliver the next line.\n\n🎬 And tap Float to put the prompter on top of your camera app. 😄 Good luck!";
+const SAMPLE_OLD = "😊 Hi, and welcome to your new teleprompter.\n\nType or paste your script on the home screen, then tap Start. 👉 Tap anywhere to pause, and drag to scroll by hand.\n\n🤔 Want it to follow you instead? Switch on Follow my voice. ⏸️ The words light up as you say them, and the script moves at your pace.\n\n🔥 Use mood cues like these to remind yourself how to deliver the next line.\n\n🎬 And tap Float to put the prompter on top of your camera app. 😄 Good luck!";
+const SAMPLE = "# Welcome\n\n😊 Hi, and welcome to your new teleprompter. This is your **script**, and the line with the blue arrows is where you read.\n\n# Formatting\n\nSelect words in the editor to make them **bold** or ==highlighted==. Add a heading to start a new section, and it shows up on the timeline. // Two slashes add a pause.\n\n# Voice\n\n🤔 Switch to Voice and the script follows you, lighting up each word you say. 🔥 Mood cues remind you how to deliver the next line.\n\n🎬 When you are ready, tap Float to read over your camera. 😄 Good luck!";
 let scripts = store.get('tp_scripts', null);
 if(!Array.isArray(scripts) || !scripts.length) scripts = [{id:Date.now(), title:'Getting started', body:SAMPLE}];
 let cur = store.get('tp_cur', scripts[0].id);
@@ -454,45 +608,170 @@ function norm(w){ return w.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')
 function wordsOf(t){ return (t.match(/[^\s]+/g)||[]).map(norm).filter(Boolean); }
 const esc = s => s.replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-/* ================= HOME ================= */
+/* ================= NAVIGATION ================= */
+let view='library';
+function show(v, dir){
+  ['library','editorView'].forEach(id=>{ const el=$(id); el.classList.toggle('hidden', id!==v); el.classList.remove('enter','back'); });
+  const el=$(v); void el.offsetWidth; el.classList.add(dir==='back'?'back':'enter');
+  view=v;
+}
+
+/* ================= LIBRARY ================= */
 const editor=$('editor'), titleIn=$('titleIn');
-function renderBar(){
-  const bar=$('scriptBar'); bar.innerHTML='';
-  scripts.forEach(s=>{ const b=document.createElement('button'); b.className='chip'+(s.id===cur?' on':''); b.textContent=s.title||'Untitled';
-    b.setAttribute('role','tab'); b.setAttribute('aria-selected', s.id===cur);
-    b.onclick=()=>{ hap(); cur=s.id; saveScripts(); loadCur(); }; bar.appendChild(b); });
-  const add=document.createElement('button'); add.className='chip add'; add.innerHTML=PLUS_SVG+'New script'; add.onclick=()=>newScript('',''); bar.appendChild(add);
+function plain(t){ return t.replace(new RegExp(EMOJI_RE.source,'gu'),' ').replace(/\*\*|==|\/\//g,'').replace(/^#{1,3}\s+/gm,''); }
+function stats(body){
+  const w=wordsOf(plain(body)).length;
+  const cues=(body.match(new RegExp(EMOJI_RE.source,'gu'))||[]).length + (body.match(/\/\//g)||[]).length;
+  return {w, cues, sec:w/140*60};
 }
+function ago(ts){
+  if(!ts) return 'Not edited yet';
+  const d=(Date.now()-ts)/1000;
+  if(d<60) return 'Edited just now';
+  if(d<3600) return 'Edited '+Math.floor(d/60)+' min ago';
+  if(d<86400) return 'Edited '+Math.floor(d/3600)+' h ago';
+  if(d<86400*7) return 'Edited '+Math.floor(d/86400)+(Math.floor(d/86400)===1?' day ago':' days ago');
+  return 'Edited '+new Date(ts).toLocaleDateString(undefined,{day:'numeric',month:'short'});
+}
+const SVG_CLOCK='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>';
+const SVG_TEXT='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 6.1H3"/><path d="M21 12.1H3"/><path d="M15.1 18H3"/></svg>';
+const SVG_PLAY='<svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><polygon points="7 4 20 12 7 20 7 4"/></svg>';
+const SVG_TRASH='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>';
+function renderLibrary(){
+  const q=($('searchIn').value||'').trim().toLowerCase();
+  const list=$('list'); list.innerHTML='';
+  const items=scripts.slice().sort((a,b)=>(b.updated||b.id)-(a.updated||a.id))
+    .filter(s=>!q || (s.title||'').toLowerCase().includes(q) || (s.body||'').toLowerCase().includes(q));
+  if(!items.length){
+    list.innerHTML = q ? '<div class="empty"><b>No matches</b>Nothing in your scripts matches “'+esc(q)+'”.</div>'
+                       : '<div class="empty"><b>No scripts yet</b>Tap New script to write your first one, or import a text file.</div>';
+    return;
+  }
+  items.forEach(sc=>{
+    const st=stats(sc.body||''); const prev=plain((sc.body||'').replace(/^\s*#{1,3}\s+.*$/gm,'')).replace(/\s+/g,' ').trim().slice(0,140);
+    const wrap=document.createElement('div'); wrap.className='cardWrap'; wrap.setAttribute('role','listitem');
+    wrap.innerHTML='<div class="del">'+SVG_TRASH+'Delete</div>'+
+      '<div class="card" tabindex="0"><div class="body"><h4>'+esc(sc.title||'Untitled script')+'</h4><p>'+(esc(prev)||'Empty script')+'</p>'+
+      '<div class="facts"><span>'+SVG_TEXT+st.w+' words</span><span>'+SVG_CLOCK+fmt(st.sec)+'</span><span>'+ago(sc.updated)+'</span></div></div>'+
+      '<button class="go" aria-label="Start prompting '+esc(sc.title||'script')+'">'+SVG_PLAY+'</button></div>';
+    const card=wrap.querySelector('.card');
+    card.addEventListener('click',e=>{
+      if(card.dataset.swiped){ delete card.dataset.swiped; return; }
+      hap(); cur=sc.id; saveScripts();
+      if(e.target.closest('.go')){ loadCur(); startPrompting(); return; }
+      openEditor();
+    });
+    card.addEventListener('keydown',e=>{ if(e.key==='Enter'){ cur=sc.id; openEditor(); } });
+    swipeable(card, ()=>deleteScript(sc.id));
+    list.appendChild(wrap);
+  });
+}
+function swipeable(card, onDelete){
+  let x0=null,y0=0,dx=0,horiz=null;
+  card.addEventListener('pointerdown',e=>{ x0=e.clientX; y0=e.clientY; dx=0; horiz=null; });
+  card.addEventListener('pointermove',e=>{
+    if(x0==null) return;
+    const mx=e.clientX-x0, my=e.clientY-y0;
+    if(horiz==null && (Math.abs(mx)>10||Math.abs(my)>10)) horiz=Math.abs(mx)>Math.abs(my)*1.3;
+    if(!horiz) return;
+    dx=Math.min(0,mx); card.classList.add('drag'); card.style.transform='translateX('+dx+'px)';
+  });
+  const end=()=>{
+    if(x0==null) return; x0=null; card.classList.remove('drag');
+    if(horiz){ card.dataset.swiped='1'; setTimeout(()=>delete card.dataset.swiped,50); }
+    if(dx<-110){ hap('confirm'); card.style.transform='translateX(-110%)'; card.style.opacity='0'; setTimeout(onDelete,220); }
+    else card.style.transform='';
+  };
+  card.addEventListener('pointerup',end); card.addEventListener('pointercancel',end);
+}
+let snackT, undoFn=null;
+function snack(msg, undo){
+  $('snackTxt').textContent=msg; undoFn=undo; $('snackBtn').classList.toggle('hidden',!undo);
+  $('snack').classList.add('show'); clearTimeout(snackT); snackT=setTimeout(()=>{ $('snack').classList.remove('show'); undoFn=null; },4500);
+}
+$('snackBtn').onclick=()=>{ hap(); const f=undoFn; undoFn=null; $('snack').classList.remove('show'); f&&f(); };
+function deleteScript(id){
+  const idx=scripts.findIndex(s=>s.id===id); if(idx<0) return;
+  const removed=scripts[idx]; scripts.splice(idx,1);
+  if(cur===id) cur=(scripts[0]||{}).id;
+  saveScripts(); renderLibrary();
+  snack('“'+(removed.title||'Untitled script')+'” deleted', ()=>{ scripts.splice(idx,0,removed); cur=removed.id; saveScripts(); renderLibrary(); });
+}
+$('searchIn').addEventListener('input',renderLibrary);
+$('newBtn').onclick=()=>{ hap('confirm'); newScript('',''); };
+
+/* ================= EDITOR ================= */
 function newScript(title, body){
-  const s={id:Date.now(), title:title||('Script '+(scripts.length+1)), body:body};
-  scripts.push(s); cur=s.id; saveScripts(); loadCur();
-  if(!body) setTimeout(()=>editor.focus(),50);
+  const s={id:Date.now(), title:title||'', body:body||'', updated:Date.now()};
+  scripts.push(s); cur=s.id; saveScripts(); openEditor();
+  if(!body) setTimeout(()=>titleIn.focus(),320);
 }
-function loadCur(){ const s=curScript(); editor.value=s.body; titleIn.value=s.title; renderBar(); updateMeta(); }
+function openEditor(){ loadCur(); setPreview(false); show('editorView'); }
+function closeEditor(){ saveScripts(); renderLibrary(); show('library','back'); }
+function loadCur(){
+  let s=curScript(); if(!s){ s={id:Date.now(),title:'',body:'',updated:Date.now()}; scripts.push(s); cur=s.id; }
+  editor.value=s.body; titleIn.value=s.title; updateMeta();
+}
 function updateMeta(){
-  const w=wordsOf(editor.value.replace(new RegExp(EMOJI_RE.source,'gu'),' ')).length;
-  const cues=(editor.value.match(new RegExp(EMOJI_RE.source,'gu'))||[]).length;
-  $('wordCount').textContent = w+(w===1?' word':' words')+(cues?', '+cues+(cues>1?' cues':' cue'):'');
-  $('estTime').textContent = 'About '+fmt(w/140*60)+' to read';
+  const st=stats(editor.value);
+  $('wordCount').textContent = st.w+(st.w===1?' word':' words')+(st.cues?', '+st.cues+(st.cues>1?' cues':' cue'):'');
+  $('estTime').textContent = 'About '+fmt(st.sec)+' to read';
 }
 let saveT;
-editor.addEventListener('input',()=>{ curScript().body=editor.value; updateMeta(); clearTimeout(saveT); saveT=setTimeout(saveScripts,300); });
-titleIn.addEventListener('input',()=>{ curScript().title=titleIn.value; clearTimeout(saveT); saveT=setTimeout(()=>{saveScripts();renderBar();},300); });
+function touch(){ const s=curScript(); if(s) s.updated=Date.now(); clearTimeout(saveT); saveT=setTimeout(saveScripts,300); }
+editor.addEventListener('input',()=>{ curScript().body=editor.value; updateMeta(); touch(); });
+titleIn.addEventListener('input',()=>{ curScript().title=titleIn.value; touch(); });
+$('backBtn').onclick=()=>{ hap(); closeEditor(); };
+$('deleteBtn').onclick=()=>{ const id=cur; closeEditor(); setTimeout(()=>deleteScript(id),150); };
 
+function insertAt(text){
+  const v=editor.value, a=editor.selectionStart ?? v.length, z=editor.selectionEnd ?? v.length;
+  const pre=(a>0 && !/\s$/.test(v.slice(0,a)))?' ':'';
+  const ins=pre+text+' ';
+  editor.value=v.slice(0,a)+ins+v.slice(z); editor.selectionStart=editor.selectionEnd=a+ins.length;
+  editor.dispatchEvent(new Event('input')); editor.focus();
+}
+function wrapSel(mark){
+  const v=editor.value; let a=editor.selectionStart, z=editor.selectionEnd;
+  if(a===z){ // no selection: wrap the word under the cursor
+    while(a>0 && /\S/.test(v[a-1])) a--; while(z<v.length && /\S/.test(v[z])) z++;
+    if(a===z){ toast('Select some words first'); return; }
+  }
+  const sel=v.slice(a,z);
+  const already = sel.startsWith(mark) && sel.endsWith(mark) && sel.length>mark.length*2;
+  const out = already ? sel.slice(mark.length, -mark.length) : mark+sel+mark;
+  editor.value=v.slice(0,a)+out+v.slice(z); editor.selectionStart=a; editor.selectionEnd=a+out.length;
+  editor.dispatchEvent(new Event('input')); editor.focus();
+}
+function toggleHeading(){
+  const v=editor.value, a=editor.selectionStart;
+  const ls=v.lastIndexOf('\n',a-1)+1; let le=v.indexOf('\n',a); if(le<0) le=v.length;
+  const line=v.slice(ls,le);
+  let out = /^#\s+/.test(line) ? line.replace(/^#\s+/,'') : '# '+(line||'Section');
+  // headings sit in their own paragraph
+  let before=v.slice(0,ls), after=v.slice(le);
+  if(!/^#/.test(line)){ if(before && !/\n\n$/.test(before)) before=before.replace(/\n?$/,'\n\n'); if(after && !/^\n\n/.test(after)) after=after.replace(/^\n?/,'\n\n'); }
+  editor.value=before+out+after; const pos=before.length+out.length; editor.selectionStart=editor.selectionEnd=pos;
+  editor.dispatchEvent(new Event('input')); editor.focus();
+}
+document.querySelector('.tools').addEventListener('pointerdown',e=>{ if(e.target.closest('button')) e.preventDefault(); });
+$$('.tool').forEach(b=>b.addEventListener('click',()=>{
+  hap(); const f=b.dataset.fmt; if(previewOn) setPreview(false);
+  if(f==='bold') wrapSel('**'); else if(f==='mark') wrapSel('=='); else if(f==='head') toggleHeading(); else if(f==='pause') insertAt('//');
+}));
 const moodsEl=$('moods');
 MOODS.forEach(([e,l])=>{
-  const b=document.createElement('button'); b.className='mood'; b.innerHTML='<i>'+e+'</i><span>'+l+'</span>';
-  b.addEventListener('pointerdown', ev=>ev.preventDefault());   // keep keyboard/cursor in the editor
-  b.onclick=()=>{
-    hap();
-    const v=editor.value, a=editor.selectionStart ?? v.length, z=editor.selectionEnd ?? v.length;
-    const pre=(a>0 && !/\s$/.test(v.slice(0,a)))?' ':'';
-    const ins=pre+e+' ';
-    editor.value=v.slice(0,a)+ins+v.slice(z); editor.selectionStart=editor.selectionEnd=a+ins.length;
-    editor.dispatchEvent(new Event('input')); editor.focus();
-  };
+  const b=document.createElement('button'); b.className='mood'; b.innerHTML='<i>'+e+'</i><span>'+l+'</span>'; b.setAttribute('aria-label','Insert mood cue: '+l);
+  b.onclick=()=>{ hap(); if(previewOn) setPreview(false); insertAt(e); };
   moodsEl.appendChild(b);
 });
+let previewOn=false;
+function setPreview(on){
+  previewOn=on; $('previewBtn').setAttribute('aria-pressed',on);
+  editor.classList.toggle('hidden',on); $('preview').classList.toggle('hidden',!on);
+  if(on){ const r=parseScript(editor.value,false); $('preview').innerHTML=r.html||'<p style="color:#8b919f;font-weight:500">Nothing to preview yet.</p>'; $('preview').style.fontFamily='"'+S.font+'",Figtree,sans-serif'; $('preview').style.color=S.color; }
+}
+$('previewBtn').onclick=()=>{ hap(); setPreview(!previewOn); };
 
 function syncMode(){ $$('#modeSw button').forEach(b=>{ b.classList.toggle('on', b.dataset.v===S.mode); b.setAttribute('aria-checked', b.dataset.v===S.mode); }); }
 $('modeSw').addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b) return; hap(); S.mode=b.dataset.v; saveS(); syncMode();
@@ -502,10 +781,6 @@ let yesFn=null;
 function confirmBox(msg,fn){ $('confirmMsg').textContent=msg; yesFn=fn; $('confirmWrap').classList.remove('hidden'); }
 $('cNo').onclick=()=>$('confirmWrap').classList.add('hidden');
 $('cYes').onclick=()=>{ $('confirmWrap').classList.add('hidden'); const f=yesFn; yesFn=null; $('cYes').textContent='Delete'; $('cYes').style.background=''; $('cYes').style.color=''; f&&f(); };
-$('deleteBtn').onclick=()=>confirmBox('Delete “'+(curScript().title||'Untitled')+'”?',()=>{
-  scripts=scripts.filter(s=>s.id!==cur); if(!scripts.length) scripts=[{id:Date.now(),title:'Script 1',body:''}];
-  cur=scripts[scripts.length-1].id; saveScripts(); loadCur(); toast('Deleted');
-});
 $('importBtn').onclick=()=>$('fileIn').click();
 $('fileIn').onchange=e=>{ const f=e.target.files&&e.target.files[0]; if(!f) return; const r=new FileReader();
   r.onload=()=>{ newScript(f.name.replace(/\.[^.]+$/,''), String(r.result)); toast('Imported '+f.name); }; r.readAsText(f); e.target.value=''; };
@@ -518,6 +793,14 @@ $('floatBtn').onclick=()=>{
   if(S.mode==='voice' && A.hasMic && !A.hasMic()){ ensureMicPermission(); return; }
   A.startFloat();
 };
+
+/* ================= ONBOARDING ================= */
+function onbIndex(){ const t=$('onbTrack'); return Math.round(t.scrollLeft/t.clientWidth); }
+function onbSync(){ const i=onbIndex(); $$('#onbDots i').forEach((d,k)=>d.classList.toggle('on',k===i)); $('onbNext').textContent = i>=2 ? 'Get started' : 'Next'; }
+function onbClose(){ $('onb').classList.add('hidden'); store.set('tp_onboarded',1); }
+$('onbTrack').addEventListener('scroll',()=>requestAnimationFrame(onbSync),{passive:true});
+$('onbNext').onclick=()=>{ hap(); const i=onbIndex(); if(i>=2) onbClose(); else $('onbTrack').scrollTo({left:(i+1)*$('onbTrack').clientWidth,behavior:'smooth'}); };
+$('onbSkip').onclick=()=>{ hap(); onbClose(); };
 
 /* ================= SETTINGS ================= */
 const SL=[['spd','speed',v=>v],['fs','fs',v=>v+'px'],['ffs','ffs',v=>v+'px'],['lh','lh',v=>(+v).toFixed(1)],['mg','mg',v=>v+'%'],['gl','gl',v=>v+'%'],['fop','fop',v=>v+'%']];
@@ -563,21 +846,40 @@ const pxPerSec = () => S.speed * fsz() * 0.09 * speedFx;
 const gY = () => P.clientHeight * (IS_FLOAT ? Math.max(28, Math.min(S.gl,45)) : S.gl) / 100 + (IS_FLOAT ? 18 : 0);
 const voiceMode = () => S.mode==='voice';
 
-function build(body){
-  W=[]; WEL=[]; CUES=[];
-  const paras=body.replace(/\r/g,'').split(/\n\s*\n/);
-  let html='';
-  paras.forEach(p=>{
+const MARK_RE = /(\p{Extended_Pictographic}(?:️|‍\p{Extended_Pictographic}️?|\p{Emoji_Modifier})*)|(\*\*|==|\/\/)|(\s+)|([^\s\p{Extended_Pictographic}*=\/]+)|([*=\/])/gu;
+// Turns script text (with **bold**, ==highlight==, # headings, // pauses and emoji cues) into prompter HTML.
+function parseScript(body, withWords){
+  const words=[], cues=[], sections=[];
+  let html='', bold=false, mark=false;
+  const cueHtml=(e)=>'<span class="cue"><i>'+e+'</i><em>'+esc(moodLabel(e))+'</em></span>';
+  body.replace(/\r/g,'').split(/\n\s*\n/).forEach(p=>{
     if(!p.trim()) return;
-    let h='<p>';
-    for(const m of p.matchAll(TOKEN_RE)){
-      if(m[1]){ CUES.push({at:W.length, e:m[1]}); h+='<span class="cue" data-c="'+(CUES.length-1)+'"><i>'+m[1]+'</i><em>'+esc(moodLabel(m[1]))+'</em></span>'; }
-      else if(m[2]){ h+= m[2].includes('\n') ? '<br>' : ' '; }
-      else { const n=norm(m[3]); if(n){ h+='<span class="w" data-i="'+W.length+'">'+esc(m[3])+'</span>'; W.push(n); } else h+=esc(m[3]); }
+    const hm=p.match(/^\s*#{1,3}\s+(.*)$/s);
+    if(hm){ const t=hm[1].replace(/\*\*|==/g,'').trim(); sections.push({at:words.length,title:t}); html+='<p class="h">'+esc(t)+'</p>'; return; }
+    let h='<p>'; bold=false; mark=false;
+    for(const m of p.matchAll(MARK_RE)){
+      if(m[1]){ cues.push({at:words.length,e:m[1]}); h+=cueHtml(m[1]); }
+      else if(m[2]==='**') bold=!bold;
+      else if(m[2]==='==') mark=!mark;
+      else if(m[2]==='//'){ cues.push({at:words.length,e:'⏸️'}); h+=cueHtml('⏸️'); }
+      else if(m[3]) h+= m[3].includes('\n') ? '<br>' : (mark ? '<span class="m"> </span>' : ' ');
+      else {
+        const raw=m[4]||m[5]; const n=m[4]?norm(raw):'';
+        const cls=(bold?' b':'')+(mark?' m':'');
+        if(n && withWords){ h+='<span class="w'+cls+'" data-i="'+words.length+'">'+esc(raw)+'</span>'; words.push(n); }
+        else if(n){ h+= cls ? '<span class="'+cls.trim()+'">'+esc(raw)+'</span>' : esc(raw); words.push(n); }
+        else h+=esc(raw);
+      }
     }
     html+=h+'</p>';
   });
-  textEl.innerHTML=html;
+  return {html, words, cues, sections};
+}
+let SECTIONS=[];
+function build(body){
+  const r=parseScript(body,true);
+  W=r.words; CUES=r.cues; SECTIONS=r.sections;
+  textEl.innerHTML=r.html;
   WEL=[...textEl.querySelectorAll('.w')];
   cursor=committed=0; doneUpTo=0; nowEl=null; lastCueSeen=-1; speedFx=1;
 }
@@ -615,7 +917,7 @@ function measure(){
   }
   const lastTop = WEL.length ? TOPS[TOPS.length-1] + HS[HS.length-1]/2 : 0;
   maxY=Math.max(0,lastTop);
-  y=Math.min(y,maxY); render();
+  y=Math.min(y,maxY); tlLast=-1; if(!IS_FLOAT) drawTicks(); render();
 }
 // continuous position: f is a fractional word index; the reading line glides through each line as it is spoken
 function yAt(f){
@@ -658,9 +960,41 @@ function render(){
   updateNextMood();
   if(!IS_FLOAT){
     const base=S.speed*fsz()*0.09;
-    $('timeInfo').textContent= voiceMode() ? (cursor+' / '+W.length+' words') : (fmt(y/base)+' / '+fmt(maxY/base));
+    $('timeInfo').textContent= voiceMode() ? (cursor+' of '+W.length+' words') : (fmt(y/base)+' / '+fmt(maxY/base));
+    renderTimeline();
   }
 }
+let tlLast=-1;
+function renderTimeline(){
+  const f = maxY ? Math.min(1, y/maxY) : 0;
+  if(Math.abs(f-tlLast)<0.001) return; tlLast=f;
+  $('tlFill').style.width=(f*100)+'%'; $('tlKnob').style.left=(f*100)+'%';
+  const ci=curWordIndex(); let sec=''; for(const s of SECTIONS){ if(s.at<=ci) sec=s.title; else break; }
+  $('tlSec').textContent=sec; $('tlPct').textContent=Math.round(f*100)+'%';
+  // pace coach
+  let wpm=0;
+  if(voiceMode()) wpm = (performance.now()-lastHeardT<2500 && lastAdvT) ? Math.round(wps*60) : 0;
+  else if(W.length && maxY) wpm = Math.round(pxPerSec()/(maxY/W.length)*60);
+  const pill=$('wpmPill'); $('wpmTxt').textContent = wpm||'—';
+  const v=voiceMode();
+  pill.classList.toggle('good', v && wpm>=120 && wpm<=170); pill.classList.toggle('fast', v && wpm>170); pill.classList.toggle('slow', v && wpm>0 && wpm<110);
+}
+function drawTicks(){
+  const t=$('tlTicks'); t.innerHTML='';
+  if(!maxY) return;
+  SECTIONS.forEach(s=>{ if(s.at>=WEL.length) return; const i=document.createElement('i'); i.style.left=(Math.min(1,yFor(s.at)/maxY)*100)+'%'; t.appendChild(i); });
+}
+(function(){
+  const tl=$('timeline'); let on=false;
+  const seek=e=>{ const r=tl.querySelector('.track').getBoundingClientRect(); const f=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
+    y=f*maxY; lastCueSeen=CUES.findIndex(c=>c.at>wordAtY(y+1))-1; if(lastCueSeen<-1) lastCueSeen=CUES.length-1;
+    if(voiceMode()){ const i=wordAtY(y+1); cursor=committed=uttBase=i; vpos=i; setDone(i); setNow(i-1); }
+    tlLast=-1; render(); showHud(true); };
+  tl.addEventListener('pointerdown',e=>{ e.stopPropagation(); on=true; tl.setPointerCapture(e.pointerId); hap(); seek(e); });
+  tl.addEventListener('pointermove',e=>{ if(on) seek(e); });
+  tl.addEventListener('pointerup',()=>{ on=false; }); tl.addEventListener('pointercancel',()=>{ on=false; });
+  tl.addEventListener('click',e=>e.stopPropagation());
+})();
 function moodEffects(){
   if(!S.moodFx || voiceMode()) return;
   const ci=wordAtY(y+1);
@@ -694,7 +1028,7 @@ function tick(t){
 }
 const loop=()=>{ if(!raf){ last=performance.now(); raf=requestAnimationFrame(tick); } };
 const PLAY='<polygon points="7 4 20 12 7 20 7 4"/>', PAUSE='<rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/>';
-const setPlayIcon=on=>$$('.playIco').forEach(s=>s.innerHTML=on?PAUSE:PLAY);
+const setPlayIcon=on=>$$('.playIco').forEach(s=>{ const nv=on?PAUSE:PLAY; if(s.innerHTML===nv) return; const b=s.closest('.hb'); b&&b.classList.add('pop'); setTimeout(()=>{ s.innerHTML=nv; b&&b.classList.remove('pop'); },90); });
 
 function play(){ if(cdTimer) return; if(y>=maxY) { y=0; lastCueSeen=-1; } playing=true; setPlayIcon(true); loop(); hideHudSoon(); }
 function pause(){
@@ -726,9 +1060,10 @@ function hideHudSoon(){ clearTimeout(hudTimer); hudTimer=setTimeout(()=>{ if(pla
 
 function openPrompter(){
   const body=(curScript().body||'').trim();
-  if(!body){ toast('Write a script first'); if(!IS_FLOAT) editor.focus(); return; }
+  if(!body){ toast('Write a script first'); if(!IS_FLOAT){ openEditor(); } return; }
   build(body);
-  $('home').classList.add('hidden'); P.classList.remove('hidden');
+  if(!IS_FLOAT){ $('library').classList.add('hidden'); $('editorView').classList.add('hidden'); }
+  P.classList.remove('hidden');
   prompting=true; y=0; vpos=0; playing=false; setPlayIcon(false);
   if(A && A.setPrompting) A.setPrompting(true);
   applyStyle(); measure(); showHud(false);
@@ -744,9 +1079,10 @@ function closePrompter(){
   pause(); micStop(); prompting=false;
   if(A && A.setPrompting) A.setPrompting(false);
   if(IS_FLOAT){ A && A.closeFloat && A.closeFloat(); return; }
-  P.classList.add('hidden'); $('home').classList.remove('hidden');
+  P.classList.add('hidden'); show(view,'back'); if(view==='library') renderLibrary();
 }
-$('startBtn').onclick=()=>{ if(S.mode==='voice' && A && A.hasMic && !A.hasMic()){ ensureMicPermission(()=>openPrompter()); return; } openPrompter(); };
+function startPrompting(){ if(S.mode==='voice' && A && A.hasMic && !A.hasMic()){ ensureMicPermission(()=>openPrompter()); return; } saveScripts(); openPrompter(); }
+$('startBtn').onclick=()=>{ hap('confirm'); startPrompting(); };
 $('exitBtn').onclick=closePrompter;
 $('mirBtn').onclick=()=>{ S.mirH=!S.mirH; saveS(); applyStyle(); };
 
@@ -902,14 +1238,16 @@ window.tpRemote=function(which){ if(!prompting) return; if(which==='pauseAll'){ 
 window.tpBack=function(){
   if(!$('confirmWrap').classList.contains('hidden')){ $('confirmWrap').classList.add('hidden'); return true; }
   if(!$('sheetWrap').classList.contains('hidden')){ $('sheetWrap').classList.add('hidden'); return true; }
+  if(!$('onb').classList.contains('hidden')){ onbClose(); return true; }
   if(prompting && !IS_FLOAT){ closePrompter(); return true; }
+  if(view==='editorView'){ if(previewOn){ setPreview(false); return true; } closeEditor(); return true; }
   return false;
 };
 window.toastMsg=toast;
 let netWarned=0;
 window.tpInsets=function(t,b,l,r,ime){ const st=document.documentElement.style;
   st.setProperty('--it',t+'px'); st.setProperty('--ib',b+'px'); st.setProperty('--il',l+'px'); st.setProperty('--ir',r+'px'); st.setProperty('--ime',ime+'px'); };
-window.tpReload=function(){ scripts=store.get('tp_scripts',scripts); cur=store.get('tp_cur',cur); S=Object.assign({},DEF,store.get('tp_settings',{})); if(IS_FLOAT) openPrompter(); else loadCur(); };
+window.tpReload=function(){ scripts=store.get('tp_scripts',scripts); cur=store.get('tp_cur',cur); S=Object.assign({},DEF,store.get('tp_settings',{})); if(IS_FLOAT) openPrompter(); else if(view==='library') renderLibrary(); };
 let rzT; window.addEventListener('resize',()=>{ clearTimeout(rzT); rzT=setTimeout(()=>{ if(prompting){ const i=curWordIndex(); applyStyle(); y = voiceMode() ? yAt(vpos) : yFor(i); render(); } },60); });
 document.addEventListener('visibilitychange',()=>{ if(document.hidden && prompting && !IS_FLOAT){ pause(); } });
 
@@ -951,7 +1289,9 @@ $('cNo').addEventListener('click',()=>{ $('cYes').textContent='Delete'; $('cYes'
 
 /* boot */
 syncMode(); syncSettings(); applyStyle(); setPlayIcon(false);
-if(IS_FLOAT){ openPrompter(); } else { loadCur(); showVersion(); setTimeout(()=>checkUpdate(false,true), 2500); }
+scripts.forEach(sc=>{ if(!sc.updated) sc.updated=sc.id; }); if(!IS_FLOAT) saveScripts();
+if(IS_FLOAT){ $('library').classList.add('hidden'); openPrompter(); }
+else { renderLibrary(); showVersion(); if(!store.get('tp_onboarded',0)) $('onb').classList.remove('hidden'); setTimeout(()=>checkUpdate(false,true), 2500); }
 if(A && A.bootOk) A.bootOk();
 })();
 </script>
