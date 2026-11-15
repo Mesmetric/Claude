@@ -1,12 +1,12 @@
 {
-  "version": 5,
-  "notes": "Over-the-air updates added",
+  "version": 6,
+  "notes": "New blue design, light and dark mode",
   "minApp": 5,
   "apk": "https://github.com/Mesmetric/Claude/raw/main/teleprompter/Teleprompter.apk",
   "files": [
     {
       "path": "index.html",
-      "sha256": "1c65662b603be57e470d194baa8419bdd7126e6df4802aec4a1810e5aa106f33"
+      "sha256": "9631376c7df4cc5f5b29f7e289d589b0df5325acd4b82d334aed6bf063c50cfc"
     }
   ]
 }
